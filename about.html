@@ -12,6 +12,22 @@
 	<link rel="manifest" href="/favicon/site.webmanifest">
 	<style>
 		* {box-sizing: border-box;}
+
+		.container {
+			display: grid;
+			align-items: center; 
+			grid-template-columns: 1fr 1fr 1fr;
+			column-gap: 5px;
+		}
+
+		img {
+  			max-width: 100%;
+			max-height:100%;
+		}
+
+		.text {
+  			font-size: 70px;
+		}
 		
 		body { 
 		  margin: 0;
@@ -78,8 +94,15 @@
 	  </div>
 
 	  <div style="padding-left:20px">
-		<h1>Hi there,</h1>
-		<p>This will be an about page at some point</p>
+		<h1>About</h1>
+		<div class="container">
+			<div class="image">
+				<img src="MTProfileSquare.png" alt="Matt Thompson" style="width:500px;height:500px;">
+			</div>
+			<div class="text">
+			  <p>Hi there, this is me.</p>
+			</div>
+		  </div>
 	  </div>
 
 </body>
