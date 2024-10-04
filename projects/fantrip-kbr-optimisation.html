@@ -53,6 +53,11 @@
 		.header-right {
 		  float: right;
 		}
+
+		.body {
+			margin:20px;
+			padding-bottom: 50px;
+		}
 		
 		@media screen and (max-width: 500px) {
 		  .header a {
@@ -72,94 +77,29 @@
 		 .grid-container {
   			display: grid;
 			column-gap: 5%;
-  			grid-template-columns: 28% 28% 28%;
+			row-gap:2%;
+  			grid-template-columns: 30% 65%;
 			background-color: rgba(255, 255, 255, 0.8);
 			background-color: #ffffff00;
   			padding: 10px;
 			justify-content: space-evenly;
 		}
 		.grid-item-1 {
-			background-image: url('images/polyfan.gif');
-			background-attachment: local;
-			background-size: 50%;
+			/*background-image: url('../images/polyfan.gif');
+			background-attachment: fixed;
+			background-size: 50%;*/
 			background-color: rgba(255, 255, 255, 0.8);
   			border: 0px solid rgba(0, 0, 0, 0.8);
 			box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   			padding: 0px;
-			height: 100px;
+			height: auto;
 		}
 
 		.grid-item-2 {
-			background-image: url('images/RTTDDFT.png');
-			background-attachment: local;
-			background-size: cover;
-			background-size: 98%;
-  			border: 0px solid rgba(0, 0, 0, 0.8);
-			box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  			padding: 20px;
-  			font-size: small;
-  			display: flex;
-  			align-items: flex-end;
-  			justify-content: flex-start;
+  			font-size: normal;
 			word-wrap: break-word;
 			height: 100px;
-		}
-
-		.grid-item-3 {
-			background-image: url('images/PyRTP.png');
-			background-attachment: local;
-			background-size: cover;
-  			border: 0px solid rgba(0, 0, 0, 0.8);
-			box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  			padding: 20px;
-  			font-size: small;
-  			display: flex;
-  			align-items: flex-end;
-  			justify-content: flex-start;
-			word-wrap: break-word;
-			height: 100px;
-		}
-		
-		.grid-item-4 {
-			/*background-image: url('images/polyfan.gif');
-			background-attachment: local;
-			background-size: 50%;*/
-
-			background-color: rgb(249, 249, 249);
-			box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-			border: 0px solid rgba(0, 0, 0, 0.8);
-  			padding: 15px 5px;
-  			font-size: small;
-			text-align: center;
-  			/*display: flex;*/
-  			align-items: center;
-  			justify-content: center;
-			word-wrap: break-word;
-			height: 60px;
-		}
-
-		.grid-item-5{
-			background-color: rgb(249, 249, 249);
-			box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-			border: 0px solid rgba(0, 0, 0, 0.8);
-  			padding: 5px 5px;
-  			font-size: small;
-  			/*display: flex;*/
-			text-align: center;
-			word-wrap: break-word;
-			height: 60px;
-		}
-
-		.grid-item-6{
-			background-color: rgb(249, 249, 249);
-			box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-			border: 0px solid rgba(0, 0, 0, 0.8);
-  			padding: 20px 5px;
-  			font-size: small;
-  			/*display: flex;*/
-			text-align: center;
-			word-wrap: break-word;
-			height: 60px;
+			padding-bottom: 50px
 		}
 		
 		</style>
@@ -173,9 +113,28 @@
 		  <a href="../contact">Contact</a>
 		</div>
 	  </div>
-	  <div style="margin:20px">
+	  <div class="body">
 		<h1>Polyfan-KBr Optimisation</h1>
-		Project description coming soon.
+		<div class="grid-container">
+			<div class="grid-item-1"><img src="../images/polyfan.gif"></div>
+			<div class="grid-item-2">
+			<p>Objective: computationally determine the most energetically viable permutations of the Fantrip unit cell, such that there exists a Fantrip supercell which is commensurate with a KBr supercell.</p>
+			<p> This work, which was completed at the University of Lincoln as a collaboration between Prof. Matt Watkins, Dr Christian Loppacher at IM2NP and myself, concerned Fantrip polymeric networks deposited onto alkali halide bulk insulator surfaces. As shown in the AFM image, the lattice forms a roughly rectangular lattice, which is unexpected given the Fantrip gas phase unit cell of approximately 55 degrees. The task at Lincoln was to determine which Fantrip unit cell permutations were both geometrically and energetically feasible to give similar results as the provided AFM images.</p>
+			<p>This work was largely completed in Python, using the <a href="https://wiki.fysik.dtu.dk/ase/about.html">ASE</a> package, which has excellent I/O capabilities to interface with other programs (in this case the ab-initio code <a href="https://www.cp2k.org">CP2K</a>), and has plotting capabilities for efficient error-checking.</p>
+			<p>The routine to set up the .pdb files for DFT is comprised of 3 distinct programs:<br>
+				<ul>
+				<li>Program 1: using 'scipy.optimise.minimise', a list of a and b vectors which form commensurate supercells with KBr is produced. The code scans within an inputted range, allowing one to reduce the likelihood of suggesting non-physical systems.<br><br></li>
+				<li>Program 2: using the list of a and b vectors produced by program 1, the corresponding Fantrip surfaces are produced. This is done by adjusting the angle and bond lengths slowly (i.e. 1/20 x change in cell angle/length), and optimising geometry each step (using CP2K as a calculator in ASE) to ensure physicality. xTB methods were used here for speed, however final geometries were optimised using full DFT. From this program, a .pdb file of each Fantrip monolayer permutation is produced.<br><br></li>
+				<li>Program 3: using the .pdb files produced by program 2, this script combines the KBr substrate and Fantrip monolayer in the correct orientation. To do this, a reference .cif file of KBr is given and is then screened to give a sufficient number of layers (3 were used in this case). From there, a supercell of KBr is constructed to fit under the Fantrip supercell. One notable finding of this was rotating the substrate produced far better results, compared to rotating the monolayer (which feels possibly more intuitive to do). In doing this and visualising, any defects in the rotation are noticable immediately. After this, the monolayer is combined with the substrate, and any atoms lying outside the Fantrip supercell are removed. At this point, a simple test is carried out to ensure the completed .pdb file is periodic in the x-z plane. </li>
+				</ul>
+			This routine produced a .pdb file of each Fantrip supercell permutation deposited onto the KBr substrate. From here, CP2K was used to optimise geometry, and then calculate both the binding and formation energies. These calculations were run on ARCHER2, using between 4 and 8 nodes (depending on the system size). This allowed us to determine which permutation was most likely.</p> 
+			<p>As a final visual check, the Python packaged <a href="https://github.com/Probe-Particle/ppafm">ppafm</a> was used to simulate AFM images. Once correctly set up, the identified permutation bore a visual similarity to the provided AFM images.</p>
+			<p>Future work: in the future, I would like to package these scripts up into a single script to construct layered systems and determine binding energies, as this job is somewhat fiddly to do for many permutations. <br> <br></p>
+			
+			
+			</div>
+			<div class="grid-item-1"><img src="../images/polyfan-afm.png"></div>
+		</div>
 	  </div>
 </body>
 </html>

@@ -35,6 +35,11 @@
 		.text {
   			font-size: 16px;
 		}
+
+		.body {
+			margin:20px;
+			padding-bottom: 50px;
+		}
 		
 		body { 
 		  margin: 0;
@@ -88,6 +93,34 @@
 			float: none;
 		  }
 		}
+
+		.grid-container {
+  			display: grid;
+			column-gap: 5%;
+			row-gap:2%;
+  			grid-template-columns: 30% 65%;
+			background-color: rgba(255, 255, 255, 0.8);
+			background-color: #ffffff00;
+  			padding: 10px;
+			justify-content: space-evenly;
+		}
+		.grid-item-1 {
+			/*background-image: url('../images/polyfan.gif');
+			background-attachment: fixed;
+			background-size: 50%;*/
+			background-color: rgba(255, 255, 255, 0.8);
+  			border: 0px solid rgba(0, 0, 0, 0.8);
+			box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  			padding: 0px;
+			height: auto;
+		}
+
+		.grid-item-2 {
+  			font-size: normal;
+			word-wrap: break-word;
+			height: 100px;
+			padding-bottom: 50px
+		}
 		</style>
 </head>
 <body>
@@ -99,11 +132,12 @@
 		  <a href="contact">Contact</a>
 		</div>
 	</div>
-	<div style="padding-right:20px">
-		<div style="padding-left:20px">
+	<div class="body">
 			<h1>About</h1>
-			<img src="/images/MTProfileSquare.png" alt="Matt Thompson" ALIGN="left" HSPACE="35" />
-			<p>Matt Thompson is a PhD student in the Department of Mechanical Engineering at University College London (UCL), UK. His PhD project looks into characterising materials for hydrogen production, under the joint supervision of <a href="https://profiles.ucl.ac.uk/84091-enrique-galindonava">Dr Enrique Galindo-Nava </a> and <a href="https://profiles.ucl.ac.uk/4314-alexander-shluger">Prof Alexander Shluger</a>. </p>
+			<div class="grid-container">
+				<div class="grid-item-1"><img src="/images/MTProfileSquare.png" alt="Matt Thompson"></div>
+				<div class="grid-item-2">
+					<p>Matt Thompson is a PhD student in the Department of Mechanical Engineering at University College London (UCL), UK. His PhD project looks into characterising materials for hydrogen production, under the joint supervision of <a href="https://profiles.ucl.ac.uk/84091-enrique-galindonava">Dr Enrique Galindo-Nava </a> and <a href="https://profiles.ucl.ac.uk/4314-alexander-shluger">Prof Alexander Shluger</a>. </p>
 			<p>Prior to moving to UCL in 2024, Matt was an Associate Demonstrator and Graduate Researcher at the <a href="https://www.lincoln.ac.uk/smp/">University of Lincoln School of Mathematics and Physics</a>, UK.</p>
 			<p>Matt joined the department as a student in September 2019 and was appointed to the role of Associate Demonstrator in October 2022. He completed his MPhys Physics undergraduate study in June 2023 and is continuing his research as a Graduate Researcher.</p>
 			<p>His research interests at Lincoln included: </p>
@@ -115,7 +149,9 @@
 			</ul>
 			<p>I am also interested in collaborating on materials projects (from a computational perspective).</p>
 			<p>If you are interested in working together, do <a href="contact">get in touch</a>!</p>
-		</div>
+				</div>
+			
+			</div>
 	</div>
 </body>
 </html>
