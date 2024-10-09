@@ -14,10 +14,15 @@
 		* {box-sizing: border-box;}
 		
 		body { 
-		  margin: 0;
+		  margin: 0px;
 		  font-family: Arial, Helvetica, sans-serif;
 		}
 		
+		.body_content {
+			margin-left: 20px;
+			margin-right: 20px;
+		}
+
 		.header {
 		  overflow: hidden;
 		  background-color: #f1f1f1;
@@ -53,7 +58,150 @@
 		.header-right {
 		  float: right;
 		}
+
+		a:link {
+  			color: rgb(0, 0, 0);
+			text-decoration: none;
+		}
+
+		/* visited link */
+		a:visited {
+ 			 color: rgb(0, 0, 0);
+		}
+
+		/* mouse over link */
+		a:hover {
+		  color: dodgerblue;
+		}
+
+		/* selected link */
+		a:active {
+		  color: dodgerblue;
+		}
 		
+		p.center{
+			margin: 0;
+  			position: absolute;
+  			top: 50%;
+  			left: 50%;
+  			-ms-transform: translate(-50%, -50%);
+  			transform: translate(-50%, -50%);
+		}
+		.wrap{
+			background-color: rgba(255, 255, 255, 0);
+    		cursor: pointer;
+		}
+
+		grid-container {
+  			display: grid;
+			column-gap: 5%;
+			grid-template-columns: repeat(3, 1fr);
+			grid-template-rows: repeat(2, 1fr);
+			background-color: rgba(255, 255, 255, 0.8);
+			background-color: #ffffff00;
+  			padding: 0px;
+			justify-content: space-evenly;
+			justify-items: space-evenly;
+			grid-template-areas: "column-1 column-2 column-3"
+								"column-4 column-5 column-6";
+		}
+
+		grid-item-1 { grid-area: column-1; }
+		grid-item-2 { grid-area: column-2; }
+		grid-item-3 { grid-area: column-3; }
+		grid-item-4 { grid-area: column-4; }
+		grid-item-5 { grid-area: column-5; }
+		grid-item-6 { grid-area: column-6; }
+		
+		grid-item-1 {
+			background-image: url('./images/polyfan.png');
+			background-attachment: local;
+			background-size: 50%;
+			display: grid;
+			/*background-color: rgba(255, 255, 255, 0.8);*/
+  			border: 0px solid rgba(0, 0, 0, 0.8);
+			box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  			padding: 0px;
+			height: 20vw;
+			grid-area: column-1;
+		}
+
+		grid-item-2 {
+			background-image: url('./images/RTTDDFT.png');
+			background-attachment: local;
+			background-size: cover;
+			background-size: 50%;
+  			border: 0px solid rgba(0, 0, 0, 0.8);
+			box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  			font-size: small;
+  			display: grid;
+  			align-items: flex-end;
+  			justify-content: flex-start;
+			word-wrap: break-word;
+			height: 20vw;
+			grid-area: column-2;
+		}
+
+		grid-item-3 {
+			background-image: url('images/PyRTP.png');
+			background-attachment: local;
+			background-size: 50%;
+  			border: 0px solid rgba(0, 0, 0, 0.8);
+			box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  			padding: 20px;
+  			font-size: small;
+  			display: grid;
+  			align-items: flex-end;
+  			justify-content: flex-start;
+			word-wrap: break-word;
+			height: 20vw;
+			grid-area: column-3;
+		}
+		
+		grid-item-4 {
+			background-color: rgb(249, 249, 249);
+			box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+			border: 0px solid rgba(0, 0, 0, 0.8);
+			padding-left: 5px;
+			padding-right: 5px;
+			font-size: 1.8vw;
+  			display: grid;
+  			align-items: center;
+  			justify-content: center;
+			word-wrap: break-word;
+			height: 5vw;
+			grid-area: column-4;
+		}
+
+		grid-item-5{
+			background-color: rgb(249, 249, 249);
+			box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+			border: 0px solid rgba(0, 0, 0, 0.8);
+			padding-left: 5px;
+			padding-right: 5px;
+			font-size: 1.8vw;
+  			display: grid;
+  			align-items: center;
+  			justify-content: center;
+			word-wrap: break-word;
+			height: 5vw;
+			grid-area: column-5;
+		}
+
+		grid-item-6{
+			background-color: rgb(249, 249, 249);
+			box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+			border: 0px solid rgba(0, 0, 0, 0.8);
+			padding-left: 5px;
+			padding-right: 5px;
+			font-size: 1.8vw;
+  			display: grid;
+  			align-items: center;
+  			justify-content: center;
+			word-wrap: break-word;
+			height: 5vw;
+			grid-area: column-6;
+		}
 		@media screen and (max-width: 500px) {
 		  .header a {
 			float: none;
@@ -64,115 +212,23 @@
 		  .header-right {
 			float: none;
 		  }
-		}
-		p.ex1 {
-  			border: 0px solid red; 
-			padding-left: 0px;
-  			padding-right: 20px;
-		}
-		p.center{
-			margin: 0;
-  			position: absolute;
-  			top: 50%;
-  			left: 50%;
-  			-ms-transform: translate(-50%, -50%);
-  			transform: translate(-50%, -50%);
-		}
-		.wrap{
-    		cursor: pointer;
-		}
+		  grid-container {
+			grid-template-columns: repeat(1, 1fr);
+			grid-template-rows: 33vw 10vw 33vw 10vw 33vw 10vw;
+			grid-template-areas: " column-1 "
+								 " column-4 "
+								 " column-2 "
+								 " column-5 "
+								 " column-3 "
+								 " column-6 ";
+		  }
+		  grid-item-1 { grid-area: column-1; height: 33vw; background-size: 25%;}
+		  grid-item-2 { grid-area: column-2; height: 33vw; background-size: 25%;}
+		  grid-item-3 { grid-area: column-3; height: 33vw; background-size: 25%;}
+		  grid-item-4 { grid-area: column-4; font-size: 3vw; height: 8vw;}
+		  grid-item-5 { grid-area: column-5; font-size: 3vw; height: 8vw;}
+		  grid-item-6 { grid-area: column-6; font-size: 3vw; height: 8vw;}
 
-		 .grid-container {
-  			display: grid;
-			column-gap: 5%;
-  			grid-template-columns: 28% 28% 28%;
-			background-color: rgba(255, 255, 255, 0.8);
-			background-color: #ffffff00;
-  			padding: 10px;
-			justify-content: space-evenly;
-		}
-		.grid-item-1 {
-			background-image: url('images/polyfan.png');
-			background-attachment: local;
-			background-size: 50%;
-			background-color: rgba(255, 255, 255, 0.8);
-  			border: 0px solid rgba(0, 0, 0, 0.8);
-			box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  			padding: 0px;
-			height: 20vw;
-		}
-
-		.grid-item-2 {
-			background-image: url('images/RTTDDFT.png');
-			background-attachment: local;
-			background-size: cover;
-			background-size: 50%;
-  			border: 0px solid rgba(0, 0, 0, 0.8);
-			box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  			padding: 20px;
-  			font-size: small;
-  			display: flex;
-  			align-items: flex-end;
-  			justify-content: flex-start;
-			word-wrap: break-word;
-			height: 20vw;
-		}
-
-		.grid-item-3 {
-			background-image: url('images/PyRTP.png');
-			background-attachment: local;
-			background-size: 50%;
-  			border: 0px solid rgba(0, 0, 0, 0.8);
-			box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  			padding: 20px;
-  			font-size: small;
-  			display: flex;
-  			align-items: flex-end;
-  			justify-content: flex-start;
-			word-wrap: break-word;
-			height: 20vw;
-		}
-		
-		.grid-item-4 {
-			background-color: rgb(249, 249, 249);
-			box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-			border: 0px solid rgba(0, 0, 0, 0.8);
-			padding-left: 5px;
-			padding-right: 5px;
-			font-size: 1.5vw;
-  			display: flex;
-  			align-items: center;
-  			justify-content: center;
-			word-wrap: break-word;
-			height: 5vw;
-		}
-
-		.grid-item-5{
-			background-color: rgb(249, 249, 249);
-			box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-			border: 0px solid rgba(0, 0, 0, 0.8);
-			padding-left: 5px;
-			padding-right: 5px;
-			font-size: 1.5vw;
-  			display: flex;
-  			align-items: center;
-  			justify-content: center;
-			word-wrap: break-word;
-			height: 5vw;
-		}
-
-		.grid-item-6{
-			background-color: rgb(249, 249, 249);
-			box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-			border: 0px solid rgba(0, 0, 0, 0.8);
-			padding-left: 5px;
-			padding-right: 5px;
-			font-size: 1.5vw;
-  			display: flex;
-  			align-items: center;
-  			justify-content: center;
-			word-wrap: break-word;
-			height: 5vw;
 		}
 		
 		</style>
@@ -187,32 +243,31 @@
 		</div>
 	  </div>
 
-	  <div style="padding-left:20px">
-		<p class="ex1">This site contains a collection of my work, as well as my contact details should you wish to get in touch. I am still in the process of setting this site up (still learning HTML and CSS), so please excuse the mess!</p>
+	<div class="body_content">
+		<p>This site contains a collection of my work, as well as my contact details should you wish to get in touch. I am still in the process of setting this site up (still learning HTML and CSS), so please excuse the mess!</p>
 		<h1>Previous Projects</h1>
-		
-	  </div>
 
-	  <div class="grid-container">
-		<div class="wrap" onclick='location.href = "projects/fantrip-kbr-optimisation";'>
-			<div class="grid-item-1"></div>
-		</div>
-		<div class="wrap" onclick='location.href = "projects/rttddftincp2k";'>
-			<div class="grid-item-2"></div>
-		</div>
 
-		<div class="wrap" onclick='location.href = "projects/pyrtp";'>
-			<div class="grid-item-3"></div>
-		</div>
-		<div class="wrap" onclick='location.href = "projects/fantrip-kbr-optimisation";'>
-			<div class="grid-item-4"><center>Fantrip-KBr Optimisation</center></div>
-		</div>
-		<div class="wrap" onclick='location.href = "projects/rttddftincp2k";'>
-			<div class="grid-item-5"><center>Optimisation of RT-TDDFT Methods in CP2K</center></div>
-		</div>
-		<div class="wrap" onclick='location.href = "projects/pyrtp";'>
-			<div class="grid-item-6">PyRTP</div>
-		</div>
-	  </div>
+		<grid-container>
+			<div class="wrap" onclick='location.href = "./projects/fantrip-kbr-optimisation";'>
+			<grid-item-1></grid-item-1>
+			</div>
+
+			<div class="wrap" onclick='location.href = "./projects/rttddftincp2k";'>
+			<grid-item-2></grid-item-2>
+			</div>
+
+			<div class="wrap" onclick='location.href = "./projects/pyrtp";'>
+			<grid-item-3></grid-item-3>
+			</div>
+
+			<grid-item-4><center><a href="./projects/fantrip-kbr-optimisation">Fantrip-KBr Optimisation</a></center></grid-item-4>
+
+
+			<grid-item-5><center><a href="./projects/rttddftincp2k">Optimisation of RT-TDDFT Methods in CP2K</a></center></grid-item-5>
+
+			<grid-item-6><a href="./projects/pyrtp">PyRTP</a></grid-item-6>
+		</grid-container>
+	</div>
 </body>
 </html>

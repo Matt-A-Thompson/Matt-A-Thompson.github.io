@@ -13,13 +13,6 @@
 	<style>
 		* {box-sizing: border-box;}
 
-		.container {
-			display: grid;
-			align-items: center; 
-			grid-template-columns: 25vw 62vw;
-			column-gap: 10px;
-		}
-
 		img {
 			max-width: 100%;
 			height: auto;
@@ -79,6 +72,35 @@
 		  float: right;
 		}
 		
+
+		.grid-container {
+  			display: grid;
+			column-gap: 5%;
+			row-gap:2%;
+  			grid-template-columns: 30% 65%;
+			background-color: rgba(255, 255, 255, 0.8);
+			background-color: #ffffff00;
+  			padding: 0px;
+			justify-content: center;
+			justify-items: center;
+		}
+		.grid-item-1 {
+			/*background-image: url('../images/polyfan.gif');
+			background-attachment: fixed;
+			background-size: 50%;*/
+			max-width: 250px;
+			background-color: rgba(255, 255, 255, 0.8);
+  			border: 0px solid rgba(0, 0, 0, 0.8);
+			box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  			padding: 0px;
+			height: fit-content;
+		}
+
+		.grid-item-2 {
+  			font-size: normal;
+			word-wrap: break-word;
+		}
+
 		@media screen and (max-width: 500px) {
 		  .header a {
 			float: none;
@@ -89,32 +111,20 @@
 		  .header-right {
 			float: none;
 		  }
-		}
 
-		.grid-container {
-  			display: grid;
-			column-gap: 5%;
-			row-gap:2%;
-  			grid-template-columns: 30% 65%;
-			background-color: rgba(255, 255, 255, 0.8);
-			background-color: #ffffff00;
-  			padding: 10px;
-			justify-content: normal;
-		}
-		.grid-item-1 {
-			/*background-image: url('../images/polyfan.gif');
-			background-attachment: fixed;
-			background-size: 50%;*/
-			background-color: rgba(255, 255, 255, 0.8);
-  			border: 0px solid rgba(0, 0, 0, 0.8);
-			box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  			padding: 0px;
+		  .grid-container {
+			grid-template-columns: 90%;
+		  }
+
+		  .grid-item-1 {
+			
+			max-width: 70%;
 			height: auto;
-		}
+		  }
 
-		.grid-item-2 {
-  			font-size: normal;
-			word-wrap: break-word;
+		  .grid-item-2 {
+			height: auto;
+		  }
 		}
 		</style>
 </head>
@@ -130,7 +140,7 @@
 	<div class="body">
 			<h1>About</h1>
 			<div class="grid-container">
-				<div class="grid-item-1"><img src="/images/MTProfileSquare.png"></div>
+				<div class="grid-item-1"><img src="./images/MTProfileSquare.png"></div>
 				<div class="grid-item-2">
 			Matt Thompson is a PhD student in the Department of Mechanical Engineering at University College London (UCL), UK. His PhD project looks into characterising materials for hydrogen production, under the joint supervision of <a href="https://profiles.ucl.ac.uk/84091-enrique-galindonava">Dr Enrique Galindo-Nava </a> and <a href="https://profiles.ucl.ac.uk/4314-alexander-shluger">Prof Alexander Shluger</a>.
 			<p>Prior to moving to UCL in 2024, Matt was an Associate Demonstrator and Graduate Researcher at the <a href="https://www.lincoln.ac.uk/smp/">University of Lincoln School of Mathematics and Physics</a>, UK.</p>

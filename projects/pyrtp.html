@@ -18,6 +18,11 @@
 		  font-family: Arial, Helvetica, sans-serif;
 		}
 		
+		img {
+			max-width: 100%;
+			height: auto;
+		}
+
 		.header {
 		  overflow: hidden;
 		  background-color: #f1f1f1;
@@ -53,7 +58,45 @@
 		.header-right {
 		  float: right;
 		}
+
+		.body {
+			margin:20px;
+			padding-bottom: 50px;
+		}
 		
+		
+		.wrap{
+    		cursor: pointer;
+		}
+
+		 .grid-container {
+  			display: grid;
+			column-gap: 5%;
+			row-gap:2%;
+  			grid-template-columns: 30% 65%;
+			background-color: rgba(255, 255, 255, 0.8);
+			background-color: #ffffff00;
+  			padding: 10px;
+			justify-content: space-evenly;
+		}
+		.grid-item-1 {
+			/*background-image: url('../images/polyfan.gif');
+			background-attachment: fixed;
+			background-size: 50%;*/
+			background-color: rgba(255, 255, 255, 0.8);
+  			border: 0px solid rgba(0, 0, 0, 0.8);
+			box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  			padding: 0px;
+			height: auto;
+		}
+
+		.grid-item-2 {
+  			font-size: normal;
+			word-wrap: break-word;
+			height: 100px;
+			padding-bottom: 50px
+		}
+
 		@media screen and (max-width: 500px) {
 		  .header a {
 			float: none;
@@ -64,102 +107,10 @@
 		  .header-right {
 			float: none;
 		  }
-		}
-		.wrap{
-    		cursor: pointer;
-		}
 
-		 .grid-container {
-  			display: grid;
-			column-gap: 5%;
-  			grid-template-columns: 28% 28% 28%;
-			background-color: rgba(255, 255, 255, 0.8);
-			background-color: #ffffff00;
-  			padding: 10px;
-			justify-content: space-evenly;
-		}
-		.grid-item-1 {
-			background-image: url('images/polyfan.gif');
-			background-attachment: local;
-			background-size: 50%;
-			background-color: rgba(255, 255, 255, 0.8);
-  			border: 0px solid rgba(0, 0, 0, 0.8);
-			box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  			padding: 0px;
-			height: 100px;
-		}
-
-		.grid-item-2 {
-			background-image: url('images/RTTDDFT.png');
-			background-attachment: local;
-			background-size: cover;
-			background-size: 98%;
-  			border: 0px solid rgba(0, 0, 0, 0.8);
-			box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  			padding: 20px;
-  			font-size: small;
-  			display: flex;
-  			align-items: flex-end;
-  			justify-content: flex-start;
-			word-wrap: break-word;
-			height: 100px;
-		}
-
-		.grid-item-3 {
-			background-image: url('images/PyRTP.png');
-			background-attachment: local;
-			background-size: cover;
-  			border: 0px solid rgba(0, 0, 0, 0.8);
-			box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  			padding: 20px;
-  			font-size: small;
-  			display: flex;
-  			align-items: flex-end;
-  			justify-content: flex-start;
-			word-wrap: break-word;
-			height: 100px;
-		}
-		
-		.grid-item-4 {
-			/*background-image: url('images/polyfan.gif');
-			background-attachment: local;
-			background-size: 50%;*/
-
-			background-color: rgb(249, 249, 249);
-			box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-			border: 0px solid rgba(0, 0, 0, 0.8);
-  			padding: 15px 5px;
-  			font-size: small;
-			text-align: center;
-  			/*display: flex;*/
-  			align-items: center;
-  			justify-content: center;
-			word-wrap: break-word;
-			height: 60px;
-		}
-
-		.grid-item-5{
-			background-color: rgb(249, 249, 249);
-			box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-			border: 0px solid rgba(0, 0, 0, 0.8);
-  			padding: 5px 5px;
-  			font-size: small;
-  			/*display: flex;*/
-			text-align: center;
-			word-wrap: break-word;
-			height: 60px;
-		}
-
-		.grid-item-6{
-			background-color: rgb(249, 249, 249);
-			box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-			border: 0px solid rgba(0, 0, 0, 0.8);
-  			padding: 20px 5px;
-  			font-size: small;
-  			/*display: flex;*/
-			text-align: center;
-			word-wrap: break-word;
-			height: 60px;
+		  .grid-container {
+			grid-template-columns: 90%
+		  }
 		}
 		
 		</style>
@@ -173,9 +124,12 @@
 		  <a href="../contact">Contact</a>
 		</div>
 	  </div>
-	  <div style="margin:20px">
+	  <div class="body">
 		<h1>PyRTP</h1>
-		Project description coming soon.
+		<div class="grid-container">
+			<div class="grid-item-1"><img src="../images/PyRTP.png"></div>
+			<div class="grid-item-2">Project description coming soon.</div>
+		</div>
 	  </div>
 </body>
 </html>
