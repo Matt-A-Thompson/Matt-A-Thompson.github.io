@@ -59,12 +59,12 @@
 		  float: right;
 		}
 
-		.body {
-			margin:20px;
-			padding-bottom: 50px;
+		.body_content {
+			margin-left:20px;
+			margin-right: 20px;
 		}
 		
-		
+
 		.wrap{
     		cursor: pointer;
 		}
@@ -94,7 +94,7 @@
   			font-size: normal;
 			word-wrap: break-word;
 			height: 100px;
-			padding-bottom: 50px
+			padding-top: 0px
 		}
 
 		@media screen and (max-width: 500px) {
@@ -109,7 +109,17 @@
 		  }
 
 		  .grid-container {
-			grid-template-columns: 90%
+			grid-template-columns: 90%;
+			justify-content: center;
+			justify-items: center;
+		  }
+
+		  .grid-item-1 {
+			max-width: 75%;
+		  }
+
+		  .grid-item-2 {
+			height: auto;
 		  }
 		}
 		
@@ -124,11 +134,29 @@
 		  <a href="../contact">Contact</a>
 		</div>
 	  </div>
-	  <div class="body">
+	  <div class="body_content">
 		<h1>PyRTP</h1>
 		<div class="grid-container">
 			<div class="grid-item-1"><img src="../images/PyRTP.png"></div>
-			<div class="grid-item-2">Project description coming soon.</div>
+			<div class="grid-item-2"><p>Objective: develop a program to perform real-time time dependent density functional theory calculations <i>as simply as possible.</i></p>
+			<p>During the devlopment of the code for the <a href="./rttddftincp2k">Optimisation of RT-TDDFT methods in CP2K</a> project, it was found that the program was easy to read and accessible for undergraduate students. Many DFT codes, owing to the push for greater efficiency and accuracy, have source code which is either unaccessible (closed-source) or extremely unfriendly for non-technical people (i.e. students who are not strong programmers). On top of this, many DFT codes are written in programming languages which are not simple to follow (i.e. C, Fortran, etc.). For many students, looking at exactly <i>how</i> a code calculates values is beneficial, and thus, the project was designed to produce a code to do this.</p>
+			<p>In order to complete this project, the program had to be designed with the following considerations in order to achieve the aims set out:</p>
+			<ul>
+				<li><b>Easy to read</b> - These methods should be programmed in such a way that users who are new to programming (i.e. undergrads) can understand the code.<br><br></li>
+      			<li><b>Accurate methods</b> - The DFT and TDDFT calculations should not be appreciably less accurate than existing QC programs.<br><br></li>
+      			<li><b>Reflective of methods in other programs</b> - Methods which mirror existing codes allow for the progression of users to using more robust QC programs.</li>
+			</ul>
+			<p>In order to do this, the following programming decisions were made:</p>
+			<ul>
+				<li><b>Written exclusively in Python</b> - Free, clear syntax and can be further optimised using external packages.<br><br></li>
+				<li><b>Mirrors the methods used by <i>CP2K</i></b> - CP2K is free, open-source and popular within the community. Alongside that, CP2K's GPW method 'Quickstep' is robust and accurate.<br><br></li>
+				<li><b>Uses only packages available on a range of OSs</b> - Many QC programs require a Unix-based operating system, which locks out many less experienced users.<br><br></li>
+				<li><b>Optimised with multithreading (where possible)</b> - The <i>Numba</i> package is used to multithread processes, allowing the programs to be run relatively quickly.<br><br></li>
+				<li><b>Available in an .ipynb format</b> - IPython notebooks allow for a blended approach between theory and code, helping students.<br><br></li>
+			</ul>
+			<p>This project is publically accessible on <a href="https://github.com/Matt-A-Thompson/PyRTP">GitHub</a>, and is maintained by myself. There are a number of things that I would like to continue to work on, however I do not presently have the time to continue development alone. If you would be interested in working on this project, please <a href="../contact">get in touch</a>!</p>
+			<p>This work was also presented at the CCP9 Conference 2024, with <a href="./docs/CCP9Poster.pdf">this poster</a>.<br><br></p>
+		</div>
 		</div>
 	  </div>
 </body>
