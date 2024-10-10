@@ -79,7 +79,22 @@
   			padding: 10px;
 			justify-content: space-evenly;
 		}
-		.grid-item-1 {
+
+		grid-container {
+  			display: grid;
+			column-gap: 5%;
+			grid-template-columns: 30% 65%;
+			grid-template-rows: 18vw auto;
+			row-gap: 5%;
+			background-color: rgba(255, 255, 255, 0.8);
+			background-color: #ffffff00;
+  			padding: 0px;
+			justify-content: space-evenly;
+			justify-items: space-evenly;
+			grid-template-areas: "column-1 column-2"
+								"column-3 column-4";
+		}
+		grid-item-1 {
 			/*background-image: url('../images/polyfan.gif');
 			background-attachment: fixed;
 			background-size: 50%;*/
@@ -88,14 +103,17 @@
 			box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   			padding: 0px;
 			height: auto;
-		}
 
-		.grid-item-2 {
+		}
+		grid-item-1:nth-child(1) { grid-area: column-1; }
+		grid-item-1:nth-child(2) { grid-area: column-3; }
+
+		grid-item-2 {
   			font-size: normal;
 			word-wrap: break-word;
 			height: 100px;
-			padding-top: 0px
 		}
+		grid-item-2:nth-child(1) { grid-area: column-2; }
 
 		@media screen and (max-width: 500px) {
 		  .header a {
@@ -108,13 +126,23 @@
 			float: none;
 		  }
 
-		  .grid-container {
-			grid-template-columns: 90%;
+		  grid-container {
+			grid-template-columns: 45% 45%;
+			grid-template-rows: repeat(2, 40vw);
+			grid-template-areas: " column-1 column-3 "
+								 " column-2 column-2 ";
 		  }
 
-		  .grid-item-2 {
+			grid-item-1:nth-child(1) { grid-area: column-1; }
+			grid-item-1:nth-child(2) { grid-area: column-2; }
+
+
+		  grid-item-2 {
 			height: auto;
+			padding-top: 5px;
+			grid-area: column-2;
 		  }
+	
 		}
 		
 		</style>
@@ -130,9 +158,9 @@
 	  </div>
 	  <div class="body">
 		<h1>Polyfan-KBr Optimisation</h1>
-		<div class="grid-container">
-			<div class="grid-item-1"><img src="../images/polyfan.gif"></div>
-			<div class="grid-item-2">Objective: computationally determine the most energetically viable permutations of the Fantrip unit cell, such that there exists a Fantrip supercell which is commensurate with a KBr supercell.</p>
+		<grid-container>
+			<grid-item-1><img src="../images/polyfan.png"></grid-item-1>
+			<grid-item-2>Objective: computationally determine the most energetically viable permutations of the Fantrip unit cell, such that there exists a Fantrip supercell which is commensurate with a KBr supercell.</p>
 				<p>This work, which was completed at the University of Lincoln as a collaboration between Prof. Matt Watkins, Dr Christian Loppacher at IM2NP and myself, concerned Fantrip polymeric networks deposited onto alkali halide bulk insulator surfaces. As shown in the AFM image, the lattice forms a roughly rectangular lattice, which is unexpected given the Fantrip gas phase unit cell of approximately 55 degrees. The task at Lincoln was to determine which Fantrip unit cell permutations were both geometrically and energetically feasible to give similar results as the provided AFM images.</p>
 				<p>This work was largely completed in Python, using the <a href="https://wiki.fysik.dtu.dk/ase/about.html">ASE</a> package, which has excellent I/O capabilities to interface with other programs (in this case the ab-initio code <a href="https://www.cp2k.org">CP2K</a>), and has plotting capabilities for efficient error-checking.</p>
 				<p>The routine to set up the .pdb files for DFT is comprised of 3 distinct programs:<br>
@@ -144,10 +172,9 @@
 				This routine produced a .pdb file of each Fantrip supercell permutation deposited onto the KBr substrate. From here, CP2K was used to optimise geometry, and then calculate both the binding and formation energies. These calculations were run on ARCHER2, using between 4 and 8 nodes (depending on the system size). This allowed us to determine which permutation was most likely.</p> 
 				<p>As a final visual check, the Python packaged <a href="https://github.com/Probe-Particle/ppafm">ppafm</a> was used to simulate AFM images. Once correctly set up, the identified permutation bore a visual similarity to the provided AFM images.</p>
 				<p>Future work: in the future, I would like to package these scripts up into a single script to construct layered systems and determine binding energies, as this job is somewhat fiddly to do for many permutations. <br> <br></p>
-				</div>
-			<div class="grid-item-1"><img src="../images/polyfan-afm.png"></div>
-			<div class="grid-item-2"></div>
-		</div>
+			</grid-item-2>
+			<grid-item-1><img src="../images/polyfan-afm.png"></grid-item-1>
+		</grid-container>
 		
 	  </div>
 </body>

@@ -18,6 +18,32 @@
 		  font-family: Arial, Helvetica, sans-serif;
 		}
 		
+		img {
+			max-width: 100%;
+			height: auto;
+
+		}
+
+		a:link {
+  			color: rgb(0, 0, 0);
+			text-decoration: none;
+		}
+
+		/* visited link */
+		a:visited {
+ 			 color: rgb(0, 0, 0);
+		}
+
+		/* mouse over link */
+		a:hover {
+		  color: dodgerblue;
+		}
+
+		/* selected link */
+		a:active {
+		  color: dodgerblue;
+		}
+
 		.header {
 		  overflow: hidden;
 		  background-color: #f1f1f1;
@@ -53,7 +79,46 @@
 		.header-right {
 		  float: right;
 		}
+
+		.body_content {
+			margin-left:20px;
+			margin-right: 20px;
+		}
 		
+
+		.wrap{
+    		cursor: pointer;
+		}
+
+		 .grid-container {
+  			display: grid;
+			column-gap: 5%;
+			row-gap:2%;
+  			grid-template-columns: 30% 65%;
+			background-color: rgba(255, 255, 255, 0.8);
+			background-color: #ffffff00;
+  			padding: 10px;
+			justify-content: space-evenly;
+		}
+
+		.grid-item-1 {
+			/*background-image: url('../images/polyfan.gif');
+			background-attachment: fixed;
+			background-size: 50%;*/
+			background-color: rgba(255, 255, 255, 0.8);
+  			border: 0px solid rgba(0, 0, 0, 0.8);
+			box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  			padding: 0px;
+			height: auto;
+		}
+
+		.grid-item-2 {
+  			font-size: normal;
+			word-wrap: break-word;
+			height: 100px;
+			padding-top: 0px
+		}
+
 		@media screen and (max-width: 500px) {
 		  .header a {
 			float: none;
@@ -64,102 +129,20 @@
 		  .header-right {
 			float: none;
 		  }
-		}
-		.wrap{
-    		cursor: pointer;
-		}
 
-		 .grid-container {
-  			display: grid;
-			column-gap: 5%;
-  			grid-template-columns: 28% 28% 28%;
-			background-color: rgba(255, 255, 255, 0.8);
-			background-color: #ffffff00;
-  			padding: 10px;
-			justify-content: space-evenly;
-		}
-		.grid-item-1 {
-			background-image: url('images/polyfan.gif');
-			background-attachment: local;
-			background-size: 50%;
-			background-color: rgba(255, 255, 255, 0.8);
-  			border: 0px solid rgba(0, 0, 0, 0.8);
-			box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  			padding: 0px;
-			height: 100px;
-		}
+		  .grid-container {
+			grid-template-columns: 90%;
+			justify-content: center;
+			justify-items: center;
+		  }
 
-		.grid-item-2 {
-			background-image: url('images/RTTDDFT.png');
-			background-attachment: local;
-			background-size: cover;
-			background-size: 98%;
-  			border: 0px solid rgba(0, 0, 0, 0.8);
-			box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  			padding: 20px;
-  			font-size: small;
-  			display: flex;
-  			align-items: flex-end;
-  			justify-content: flex-start;
-			word-wrap: break-word;
-			height: 100px;
-		}
+		  .grid-item-1 {
+			max-width: 75%;
+		  }
 
-		.grid-item-3 {
-			background-image: url('images/PyRTP.png');
-			background-attachment: local;
-			background-size: cover;
-  			border: 0px solid rgba(0, 0, 0, 0.8);
-			box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  			padding: 20px;
-  			font-size: small;
-  			display: flex;
-  			align-items: flex-end;
-  			justify-content: flex-start;
-			word-wrap: break-word;
-			height: 100px;
-		}
-		
-		.grid-item-4 {
-			/*background-image: url('images/polyfan.gif');
-			background-attachment: local;
-			background-size: 50%;*/
-
-			background-color: rgb(249, 249, 249);
-			box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-			border: 0px solid rgba(0, 0, 0, 0.8);
-  			padding: 15px 5px;
-  			font-size: small;
-			text-align: center;
-  			/*display: flex;*/
-  			align-items: center;
-  			justify-content: center;
-			word-wrap: break-word;
-			height: 60px;
-		}
-
-		.grid-item-5{
-			background-color: rgb(249, 249, 249);
-			box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-			border: 0px solid rgba(0, 0, 0, 0.8);
-  			padding: 5px 5px;
-  			font-size: small;
-  			/*display: flex;*/
-			text-align: center;
-			word-wrap: break-word;
-			height: 60px;
-		}
-
-		.grid-item-6{
-			background-color: rgb(249, 249, 249);
-			box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-			border: 0px solid rgba(0, 0, 0, 0.8);
-  			padding: 20px 5px;
-  			font-size: small;
-  			/*display: flex;*/
-			text-align: center;
-			word-wrap: break-word;
-			height: 60px;
+		  .grid-item-2 {
+			height: auto;
+		  }
 		}
 		
 		</style>
@@ -173,9 +156,24 @@
 		  <a href="../contact">Contact</a>
 		</div>
 	  </div>
-	  <div style="margin:20px">
+	  <div class="body_content">
 		<h1>Optimisation of RT-TDDFT Methods in CP2K</h1>
-		Project description coming soon.
+		<div class="grid-container">
+			<div class="grid-item-1"><img src="../images/RTTDDFT.png"></div>
+			<div class="grid-item-2">
+				<p>Objective: determine if any improvements can be made (either to accuracy or computational cost) in the RT-TDDFT method implemented in CP2K.</p>
+				<p>CP2K is one of many modern quantum chemistry/solid state physics program used around the world for simulations of various atomic-scale systems, using a variety of methods. It is favoured by many for its open-source, community-developed code and its applicability to a wide variety of systems, given the large array of methods featured in the program. One such method featured in CP2K is 'Time-Dependent Density Functional Theory', first implemented into the program by Florian Schiffmann as part of his PhD thesis at the University of Zurich in 2010.</p>
+				<p>The implementation of TDDFT in CP2K currently allows for a range of information to be acquired, including emission and absorption spectra. However, further information may be obtained during TDDFT calculation methods, which presently, are not obtainable in CP2K. Also, given the relatively recent implementation of the RTP procedure in CP2K, it is worth examining to determine if anything requires updating, in order to be comparable to other programs.</p>
+				<p>In order to achieve this, the CP2K RTP procedure was replicated in Python, in order to allow for simple alteration and testing. There were 3 principle improvements we determined could feasibly be made:</p>
+				<ul>
+					<li><b>Different propagators</b> - CP2K features Crank-Nicholson, Exponential Midpoint and Enforced Time Reversal Symmetry (ETRS) propagators, however there are also <i>n</i>th order Magnus propagators, with principle interest in Commutator Free 4th Order Magnus (CFM4). There are also approximated ETRS propagators, which may provide further computational cost improvements.<br><br></li>
+					<li><b>Calculation of entropy measures</b> - given access to the electron density, it is trivially easy to determine the Shannon and von Neumann entropy, which can give a measure of 'how far away' a system is from the ground state, which may allow for dynamic ending of simulations for open system TDDFT.<br><br></li>
+					<li><b>Simple plotting and visualisation of data</b> - plotting values from CP2K often requires using scripts to read the output files and store them in a more directly useable format. By writing the program in Python, the user can save and load data directly, allowing for simple plotting.<br><br></li>
+					<li><b>Further use of predictor-corrector algorithms</b> - PC algorithms can be applied on the <i>P</i> and <i>KS</i> matrices, improving accuracy whilst not being appreciably more difficult to run.</li>
+				</ul>
+				<p>This project, which was completed as part of my undergraduate study, found that the CFM4 propagator would be a useful addition to CP2K, given the improved computational cost, whilst not sacrificing accuracy. Formulae was also stated to give a clear connection between timestep and absorption spectra accuracy, based on Nyquist-Shannon sampling theorem. This project was successful, achieving a mark of 80% for the final dissertation, which can be accessed <a href="./docs/MT_rttddft_dissertation.pdf">here</a>. This project was also extended as part of the <a href="./pyrtp">PyRTP</a> project.<br><br></p>
+
+			</div>
 	  </div>
 </body>
 </html>
