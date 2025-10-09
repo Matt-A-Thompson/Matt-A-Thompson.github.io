@@ -13,28 +13,51 @@
 	<link rel="manifest" href="/favicon/site.webmanifest">
 	<style>
 		* {box-sizing: border-box;}
+
+		h1{
+			margin-left: 20px;
+			margin-right: 20px;
+			font-weight: normal;
+			font-size:3.5vw;
+		}
+
+		footer{
+			background-color: #f1f1f1;
+			margin-top: 20px;
+			margin-bottom: 20px;
+			text-align: center;
+			font-size: small;
+			color: rgb(0, 0, 0);
+		
+			padding-top: 20px;
+			padding-bottom: 20px;
+			box-shadow: rgba(149, 157, 165, 0.3) 0px -3px 15px;
+		}
 		
 		body { 
 		  margin: 0px;
-		  font-family: Helvetica, Arial, sans-serif;
+		  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+		  line-height: 1.2;
 		}
 		
 		.body_content {
-			margin-left: 20px;
-			margin-right: 20px;
+			margin-left: 0px;
+			margin-right: 0px;
 		}
 
 		.header {
 		  overflow: hidden;
 		  background-color: #f1f1f1;
 		  padding: 20px 10px;
+		  /*border-bottom: 0.5px solid grey;*/
+		  box-shadow: rgba(149, 157, 165, 0.3) 0px 8px 24px;
 		}
 		
 		.header a {
 		  float: left;
 		  color: black;
 		  text-align: center;
-		  padding: 12px;
+		  /*padding: 12px;*/
 		  text-decoration: none;
 		  font-size: 18px; 
 		  line-height: 25px;
@@ -42,8 +65,11 @@
 		}
 		
 		.header a.logo {
-		  font-size: 25px;
 		  font-weight: bold;
+		}
+
+		.header a.buttons {
+		  padding: 12px;
 		}
 		
 		.header a:hover {
@@ -54,10 +80,12 @@
 		.header a.active {
 		  background-color: dodgerblue;
 		  color: white;
+		  padding: 12px;
 		}
 		
 		.header-right {
 		  float: right;
+		  
 		}
 
 		a:link {
@@ -94,6 +122,8 @@
 		}
 
 		grid-container {
+			margin-left: 20px;
+			margin-right: 20px;
   			display: grid;
 			column-gap: 5%;
 			grid-template-columns: repeat(3, 1fr);
@@ -203,6 +233,38 @@
 			height: 5vw;
 			grid-area: column-6;
 		}
+		banner{
+			display: block;
+			/*background-color: lightgrey;*/
+			background: url('./images/atoms.jpg');
+			background-color: rgba(255,255,255,0.85);
+  			background-blend-mode: lighten;
+			background-size: 102%;
+			opacity: 1;
+  			width: 100%;
+			height: auto;
+  			border: 0px solid green;
+  			padding: 0px;
+  			margin: 0px;
+			box-shadow: rgba(149, 157, 165, 0.3) 0px 8px 24px;
+
+		}
+		banner h1{
+			padding-top:10px;
+		}
+		banner p{
+	
+			padding: 0px;
+			margin-left: 20px;
+			margin-right: 20px;
+			padding-bottom: 30px;
+
+			color: rgb(0, 0, 0);
+			font-size: 2vw;
+			/*font-weight: bold;*/
+			/*text-shadow: 2px 2px 4px #000000;*/
+		}
+
 		@media screen and (max-width: 500px) {
 		  .header a {
 			float: none;
@@ -236,17 +298,24 @@
 </head>
 <body>
 	<div class="header">
-		<a href="./" class="logo">Matt Thompson</a>
+		<a href="./" class="logo"><img src="./images/name.png" width="200px"></a>
 		<div class="header-right">
 		  <a class="active" href="./">Home</a>
-		  <a href="./teaching">Teaching</a>
-		  <a href="about">About</a>
-		  <a href="contact">Contact</a>
+		  <a class="buttons" href="./teaching">Teaching</a>
+		  <a class="buttons" href="about">About</a>
+		  <a class="buttons" href="contact">Contact</a>
 		</div>
 	  </div>
 
 	<div class="body_content">
-		<p>This site contains a collection of my work, as well as my contact details should you wish to get in touch. I am still in the process of setting this site up (still learning HTML and CSS), so please excuse the mess!</p>
+		<banner><h1>Hi, I'm Matt! 👋</h1>
+		<p>I'm an incoming PhD student in the Mechanical Engineering department at University College London, UK.<br><br>
+		I’m currently working on methods to further understand materials used in green hydrogen production, as well as creating workflows for bulk molecular modelling jobs.<br><br>
+		My research interests include developing molecular modelling methods, particularly CP2K, as well as other MM programs.<br><br>
+		Information on some of my previous projects, as well as my teaching materials and contact details can be found here.
+
+ </p></banner>
+		
 		<h1>Previous Projects</h1>
 
 
@@ -271,5 +340,6 @@
 			<grid-item-6><a href="./projects/pyrtp">PyRTP</a></grid-item-6>
 		</grid-container>
 	</div>
+	<footer>Last updated: October 2025</footer>
 </body>
 </html>

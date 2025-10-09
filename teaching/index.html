@@ -13,9 +13,35 @@
 	<style>
 		* {box-sizing: border-box;}
 		
+		h1{
+			margin-left: 0px;
+			margin-right: 0px;
+			font-weight: normal;
+			/*font-size:3.5vw;*/
+		}
+		h2{
+			margin-left: 0px;
+			margin-right: 0px;
+			font-weight: normal;
+			/*font-size:3.5vw;*/
+		}
+
 		body { 
 		  margin: 0px;
-		  font-family: Arial, Helvetica, sans-serif;
+		  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+		}
+
+		footer{
+			background-color: #f1f1f1;
+			margin-top: 20px;
+			margin-bottom: 20px;
+			text-align: center;
+			font-size: small;
+			color: rgb(0, 0, 0);
+
+			padding-top: 20px;
+			padding-bottom: 20px;
+			box-shadow: rgba(149, 157, 165, 0.3) 0px -3px 15px;
 		}
 		
 		.body_content {
@@ -27,13 +53,14 @@
 		  overflow: hidden;
 		  background-color: #f1f1f1;
 		  padding: 20px 10px;
+		  box-shadow: rgba(149, 157, 165, 0.3) 0px 8px 24px;
 		}
 		
 		.header a {
 		  float: left;
 		  color: black;
 		  text-align: center;
-		  padding: 12px;
+		  padding: 0px;
 		  text-decoration: none;
 		  font-size: 18px; 
 		  line-height: 25px;
@@ -44,6 +71,10 @@
 		  font-size: 25px;
 		  font-weight: bold;
 		}
+
+		.header a.buttons {
+		  padding: 12px;
+		}
 		
 		.header a:hover {
 		  background-color: #ddd;
@@ -53,6 +84,7 @@
 		.header a.active {
 		  background-color: dodgerblue;
 		  color: white;
+		  padding: 12px;
 		}
 		
 		.header-right {
@@ -215,12 +247,12 @@
 </head>
 <body>
 	<div class="header">
-		<a href="../" class="logo">Matt Thompson</a>
+		<a href="../" class="logo"><img src="../images/name.png" width="200px"></a>
 		<div class="header-right">
-		  <a href="../">Home</a>
-		  <a class= "active" href="./">Teaching</a>
-		  <a href="../about">About</a>
-		  <a href="../contact">Contact</a>
+		  <a class="buttons" href="../">Home</a>
+		  <a class="active" href="./">Teaching</a>
+		  <a class="buttons" href="../about">About</a>
+		  <a class="buttons" href="../contact">Contact</a>
 		</div>
 	  </div>
 
@@ -241,5 +273,6 @@
 		</ul>
 
 	</div>
+	<footer>Last updated: October 2025</footer>
 </body>
 </html>

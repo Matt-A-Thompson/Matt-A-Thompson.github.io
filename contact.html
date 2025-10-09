@@ -12,23 +12,43 @@
 	<link rel="manifest" href="/favicon/site.webmanifest">
 	<style>
 		* {box-sizing: border-box;}
-		
+
+		h1{
+			margin-left: 20px;
+			margin-right: 20px;
+			font-weight: normal;
+			/*font-size:3.5vw;*/
+		}
+
 		body { 
 		  margin: 0;
-		  font-family: Arial, Helvetica, sans-serif;
+		  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+		}
+		footer{
+			background-color: #f1f1f1;
+			margin-top: 20px;
+			margin-bottom: 20px;
+			text-align: center;
+			font-size: small;
+			color: rgb(0, 0, 0);
+
+			padding-top: 20px;
+			padding-bottom: 20px;
+			box-shadow: rgba(149, 157, 165, 0.3) 0px -3px 15px;
 		}
 		
 		.header {
 		  overflow: hidden;
 		  background-color: #f1f1f1;
 		  padding: 20px 10px;
+		  box-shadow: rgba(149, 157, 165, 0.3) 0px 8px 24px;
 		}
 		
 		.header a {
 		  float: left;
 		  color: black;
 		  text-align: center;
-		  padding: 12px;
+		  padding: 0px;
 		  text-decoration: none;
 		  font-size: 18px; 
 		  line-height: 25px;
@@ -39,6 +59,10 @@
 		  font-size: 25px;
 		  font-weight: bold;
 		}
+
+		.header a.buttons {
+		  padding: 12px;
+		}
 		
 		.header a:hover {
 		  background-color: #ddd;
@@ -48,6 +72,7 @@
 		.header a.active {
 		  background-color: dodgerblue;
 		  color: white;
+		  padding: 12px;
 		}
 		
 		.header-right {
@@ -75,17 +100,18 @@
 </head>
 <body>
 	<div class="header">
-		<a href="./" class="logo">Matt Thompson</a>
+		<a href="./" class="logo"><img src="./images/name.png" width="200px"></a>
 		<div class="header-right">
-		  <a href="./">Home</a>
-		  <a href="./teaching">Teaching</a>
-		  <a href="about">About</a>
+		  <a class="buttons" href="./">Home</a>
+		  <a class="buttons" href="./teaching">Teaching</a>
+		  <a class="buttons" href="about">About</a>
 		  <a class="active" href="contact">Contact</a>
 		</div>
 	  </div>
 
-	  <div style="padding-left:20px">
+	  <div>
 		<h1>Contact</h1>
+		<div style="margin-left:20px; margin-right:20px;">
 		<p class="ex1">The best way to get in contact with me is via email - however here is all of my contact details and links:</p>
 		<p class="ex1">Email: <a href="mailto:matthew.thompson.24@ucl.ac.uk">matthew.thompson.24@ucl.ac.uk</a></p>
 		<p class="ex1">GitHub: <a href="https://github.com/Matt-A-Thompson">https://github.com/Matt-A-Thompson</a></p>
@@ -97,7 +123,8 @@
 			University College London<br>
 			Torrington Place<br>
 			London, WC1E 7JE, UK</p>
+		</div>
 	</div>
-
+	<footer>Last updated: October 2025</footer>
 </body>
 </html>
