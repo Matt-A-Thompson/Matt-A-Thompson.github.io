@@ -12,10 +12,27 @@
 	<link rel="manifest" href="/favicon/site.webmanifest">
 	<style>
 		* {box-sizing: border-box;}
+		h1{
+			margin-left: 0px;
+			margin-right: 20px;
+			font-weight: normal;
+			font-size:3.5vw;
+		}
+		footer{
+			background-color: #f1f1f1;
+			margin-top: 20px;
+			margin-bottom: 20px;
+			text-align: center;
+			font-size: small;
+			color: rgb(0, 0, 0);
 		
+			padding-top: 20px;
+			padding-bottom: 20px;
+			box-shadow: rgba(149, 157, 165, 0.3) 0px -3px 15px;
+		}
 		body { 
 		  margin: 0;
-		  font-family: Arial, Helvetica, sans-serif;
+		  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 		}
 		
 		img {
@@ -27,13 +44,14 @@
 		  overflow: hidden;
 		  background-color: #f1f1f1;
 		  padding: 20px 10px;
+		  box-shadow: rgba(149, 157, 165, 0.3) 0px 8px 24px;
 		}
 		
 		.header a {
 		  float: left;
 		  color: black;
 		  text-align: center;
-		  padding: 12px;
+		  padding: 0px;
 		  text-decoration: none;
 		  font-size: 18px; 
 		  line-height: 25px;
@@ -44,6 +62,10 @@
 		  font-size: 25px;
 		  font-weight: bold;
 		}
+
+		.header a.buttons {
+		  padding: 12px;
+		}
 		
 		.header a:hover {
 		  background-color: #ddd;
@@ -53,6 +75,7 @@
 		.header a.active {
 		  background-color: dodgerblue;
 		  color: white;
+		  padding: 12px;
 		}
 		
 		.header-right {
@@ -149,16 +172,17 @@
 </head>
 <body>
 	<div class="header">
-		<a href="../" class="logo">Matt Thompson</a>
+		<a href="../" class="logo"><img src="../images/name.png" width="200px"></a>
 		<div class="header-right">
-		  <a href="../">Home</a>
-		  <a href="../teaching">Teaching</a>
-		  <a href="../about">About</a>
-		  <a href="../contact">Contact</a>
+		  <a class="buttons" href="../">Home</a>
+		  <a class="buttons" href="../teaching">Teaching</a>
+		  <a class="buttons" href="../about">About</a>
+		  <a class="buttons" href="../contact">Contact</a>
 		</div>
 	  </div>
 	  <div class="body">
 		<h1>Polyfan-KBr Optimisation</h1>
+		<div>
 		<grid-container>
 			<grid-item-1><img src="../images/polyfan.png"></grid-item-1>
 			<grid-item-2>Objective: computationally determine the most energetically viable permutations of the Fantrip unit cell, such that there exists a Fantrip supercell which is commensurate with a KBr supercell.</p>
@@ -177,6 +201,7 @@
 			<grid-item-1><img src="../images/polyfan-afm.png"></grid-item-1>
 		</grid-container>
 		
+	  </div>
 	  </div>
 </body>
 </html>
