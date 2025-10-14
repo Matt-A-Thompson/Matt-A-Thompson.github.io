@@ -5,7 +5,7 @@
 	<meta charset="UTF-8"> 
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-	<title>Matt Thompson</title>
+	<title>Matt Thompson - Home</title>
 	<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
@@ -14,16 +14,24 @@
 	<style>
 		* {box-sizing: border-box;}
 
+
 		h1{
 			margin-left: 20px;
 			margin-right: 20px;
 			font-weight: normal;
 			font-size:3.5vw;
 		}
+		h2{
+			margin-left: 20px;
+			margin-right: 20px;
+			font-weight: normal;
+			font-size: 30px;
+		}
 
 		footer{
+			border-radius: 10px;
 			background-color: #f1f1f1;
-			margin-top: 20px;
+			margin-top: auto;
 			margin-bottom: 20px;
 			text-align: center;
 			font-size: small;
@@ -35,6 +43,11 @@
 		}
 		
 		body { 
+		  min-height: 100vh;
+  		  margin: 0;
+  		  display: grid;
+  		  grid-template-rows: auto 1fr auto;
+		  background-color: rgb(255, 255, 255);
 		  margin: 0px;
 		  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 		  line-height: 1.2;
@@ -46,9 +59,12 @@
 		}
 
 		.header {
+		  border-radius: 10px;
 		  overflow: hidden;
+		  height: 12vh;
 		  background-color: #f1f1f1;
 		  padding: 20px 10px;
+		  margin-bottom: 0px;
 		  /*border-bottom: 0.5px solid grey;*/
 		  box-shadow: rgba(149, 157, 165, 0.3) 0px 8px 24px;
 		}
@@ -124,13 +140,14 @@
 		grid-container {
 			margin-left: 20px;
 			margin-right: 20px;
+			padding-bottom: 50px;
   			display: grid;
 			column-gap: 5%;
 			grid-template-columns: repeat(3, 1fr);
-			grid-template-rows: repeat(2, 1fr);
+			grid-template-rows: repeat(2, 0fr);
 			background-color: rgba(255, 255, 255, 0.8);
 			background-color: #ffffff00;
-  			padding: 0px;
+  			padding-bottom: auto;
 			justify-content: space-evenly;
 			justify-items: space-evenly;
 			grid-template-areas: "column-1 column-2 column-3"
@@ -145,6 +162,8 @@
 		grid-item-6 { grid-area: column-6; }
 		
 		grid-item-1 {
+			border-top-left-radius: 10px;
+			border-top-right-radius: 10px;
 			background-image: url('./images/polyfan.png');
 			background-attachment: local;
 			background-size: 50%;
@@ -158,6 +177,8 @@
 		}
 
 		grid-item-2 {
+			border-top-left-radius: 10px;
+			border-top-right-radius: 10px;
 			background-image: url('./images/RTTDDFT.png');
 			background-attachment: local;
 			background-size: cover;
@@ -174,6 +195,8 @@
 		}
 
 		grid-item-3 {
+			border-top-left-radius: 10px;
+			border-top-right-radius: 10px;
 			background-image: url('images/PyRTP.png');
 			background-attachment: local;
 			background-size: 50%;
@@ -190,6 +213,8 @@
 		}
 		
 		grid-item-4 {
+			border-bottom-left-radius: 10px;
+			border-bottom-right-radius: 10px;
 			background-color: rgb(249, 249, 249);
 			box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 			border: 0px solid rgba(0, 0, 0, 0.8);
@@ -205,6 +230,8 @@
 		}
 
 		grid-item-5{
+			border-bottom-left-radius: 10px;
+			border-bottom-right-radius: 10px;
 			background-color: rgb(249, 249, 249);
 			box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 			border: 0px solid rgba(0, 0, 0, 0.8);
@@ -220,6 +247,8 @@
 		}
 
 		grid-item-6{
+			border-bottom-left-radius: 10px;
+			border-bottom-right-radius: 10px;
 			background-color: rgb(249, 249, 249);
 			box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 			border: 0px solid rgba(0, 0, 0, 0.8);
@@ -234,6 +263,7 @@
 			grid-area: column-6;
 		}
 		banner{
+			border-radius: 15px;
 			display: block;
 			/*background-color: lightgrey;*/
 			background: url('./images/atoms.jpg');
@@ -266,6 +296,14 @@
 		}
 
 		@media screen and (max-width: 500px) {
+		  body{
+			min-height: 100vh;
+          display: grid;
+          grid-template-rows: auto 1fr auto;
+		  }
+		  .header{
+			height: auto;
+		  }
 		  .header a {
 			float: none;
 			display: block;
@@ -292,6 +330,39 @@
 		  grid-item-5 { grid-area: column-5; font-size: 3vw; height: 8vw;}
 		  grid-item-6 { grid-area: column-6; font-size: 3vw; height: 8vw;}
 
+		
+
+		banner{
+			display: block;
+			/*background-color: lightgrey;*/
+			background: url('./images/atoms.jpg');
+			background-color: rgba(255,255,255,0.85);
+  			background-blend-mode: lighten;
+			background-size: 102%;
+			opacity: 1;
+  			width: 100%;
+			height: auto;
+  			border: 0px solid green;
+  			padding: 0px;
+  			margin: 0px;
+			box-shadow: rgba(149, 157, 165, 0.3) 0px 8px 24px;
+
+		}
+		h1{
+			font-size: 10vw
+		}
+		banner p{
+			padding: 0px;
+			margin-left: 20px;
+			margin-right: 20px;
+			padding-bottom: 30px;
+
+			color: rgb(0, 0, 0);
+			font-size: 2.8vw;
+			/*font-weight: bold;*/
+			/*text-shadow: 2px 2px 4px #000000;*/
+		}
+
 		}
 		
 		</style>
@@ -314,7 +385,8 @@
 		My research interests include developing molecular modelling methods, particularly CP2K, as well as other MM programs.<br><br>
 		Information on some of my previous projects, as well as my teaching materials and contact details can be found here.
 
- </p></banner>
+ 		</p></banner>
+
 		
 		<h1>Previous Projects</h1>
 
