@@ -12,52 +12,118 @@
 	<link rel="manifest" href="/favicon/site.webmanifest">
 	<style>
 		* {box-sizing: border-box;}
+		:root {
+			--ink: #1f2933;
+			--muted: #4d5b6a;
+			--accent: #1f6feb;
+			--panel: #ffffff;
+			--panel-tint: #f3f6fa;
+			--line: #dbe3ee;
+		}
 		
 		h1{
-			margin-left: 0px;
-			margin-right: 0px;
+			margin: 0 0 12px;
 			font-weight: normal;
-			/*font-size:3.5vw;*/
+			font-size: clamp(30px, 3.2vw, 44px);
+			letter-spacing: 0.4px;
 		}
 		h2{
-			margin-left: 0px;
-			margin-right: 0px;
+			margin: 0 0 10px;
 			font-weight: normal;
-			/*font-size:3.5vw;*/
+			font-size: clamp(18px, 1.8vw, 22px);
 		}
 
 		body { 
 		  margin: 0px;
+		  min-height: 100vh;
+		  display: grid;
+		  grid-template-rows: auto 1fr auto;
 		  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+		  color: var(--ink);
+		  background: radial-gradient(circle at 12% 0%, #f3f7fb 0%, #ffffff 46%);
 		}
 
 		footer{
+			border-radius: 0px;
 			background-color: #f1f1f1;
-			margin-top: 20px;
-			margin-bottom: 20px;
+			margin: 0;
 			text-align: center;
 			font-size: small;
 			color: rgb(0, 0, 0);
-
-			padding-top: 20px;
-			padding-bottom: 20px;
+			padding: 20px;
 			box-shadow: rgba(149, 157, 165, 0.3) 0px -3px 15px;
+			width: 100%;
 		}
 		
 		.body_content {
-			margin-left: 20px;
-			margin-right: 20px;
+			max-width: 1100px;
+			width: 100%;
+			margin: 0 auto;
+			padding: 30px 20px 60px;
+		}
+
+		.lead {
+			margin: 0 0 24px;
+			color: var(--muted);
+			font-size: 16px;
+			line-height: 1.6;
+		}
+
+		.section-grid {
+			display: grid;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			gap: 24px;
+		}
+
+		.section-card {
+			background: var(--panel);
+			border: 1px solid var(--line);
+			border-radius: 14px;
+			padding: 20px;
+			box-shadow: rgba(149, 157, 165, 0.18) 0px 10px 24px;
+		}
+
+		.resource-list {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			display: grid;
+			gap: 12px;
+		}
+
+		.resource-item {
+			padding: 12px 14px;
+			background: var(--panel-tint);
+			border: 1px solid var(--line);
+			border-radius: 10px;
+			line-height: 1.5;
+		}
+
+		.resource-item a {
+			color: var(--accent);
+			text-decoration: none;
+			font-weight: bold;
+		}
+
+		.resource-item a:hover {
+			text-decoration: underline;
 		}
 
 		.header {
+		  border-radius: 0px;
 		  overflow: hidden;
+		  min-height: 80px;
 		  background-color: #f1f1f1;
 		  padding: 20px 10px;
+		  margin: 0;
 		  box-shadow: rgba(149, 157, 165, 0.3) 0px 8px 24px;
+		  display: flex;
+		  align-items: center;
+		  justify-content: space-between;
 		}
 		
 		.header a {
-		  float: left;
+		  float: none;
 		  color: black;
 		  text-align: center;
 		  padding: 0px;
@@ -65,10 +131,11 @@
 		  font-size: 18px; 
 		  line-height: 25px;
 		  border-radius: 4px;
+		  display: inline-flex;
+		  align-items: center;
 		}
 		
 		.header a.logo {
-		  font-size: 25px;
 		  font-weight: bold;
 		}
 
@@ -88,132 +155,11 @@
 		}
 		
 		.header-right {
-		  float: right;
+		  float: none;
+		  display: flex;
+		  align-items: center;
 		}
 		
-		p.center{
-			margin: 0;
-  			position: absolute;
-  			top: 50%;
-  			left: 50%;
-  			-ms-transform: translate(-50%, -50%);
-  			transform: translate(-50%, -50%);
-		}
-		.wrap{
-			background-color: rgba(255, 255, 255, 0);
-    		cursor: pointer;
-		}
-
-		grid-container {
-  			display: grid;
-			column-gap: 5%;
-			grid-template-columns: repeat(3, 1fr);
-			grid-template-rows: repeat(2, 1fr);
-			background-color: rgba(255, 255, 255, 0.8);
-			background-color: #ffffff00;
-  			padding: 0px;
-			justify-content: space-evenly;
-			justify-items: space-evenly;
-			grid-template-areas: "column-1 column-2 column-3"
-								"column-4 column-5 column-6";
-		}
-
-		grid-item-1 { grid-area: column-1; }
-		grid-item-2 { grid-area: column-2; }
-		grid-item-3 { grid-area: column-3; }
-		grid-item-4 { grid-area: column-4; }
-		grid-item-5 { grid-area: column-5; }
-		grid-item-6 { grid-area: column-6; }
-		
-		grid-item-1 {
-			background-image: url('../images/polyfan.png');
-			background-attachment: local;
-			background-size: 50%;
-			display: grid;
-			/*background-color: rgba(255, 255, 255, 0.8);*/
-  			border: 0px solid rgba(0, 0, 0, 0.8);
-			box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  			padding: 0px;
-			height: 20vw;
-			grid-area: column-1;
-		}
-
-		grid-item-2 {
-			background-image: url('../images/RTTDDFT.png');
-			background-attachment: local;
-			background-size: cover;
-			background-size: 50%;
-  			border: 0px solid rgba(0, 0, 0, 0.8);
-			box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  			font-size: small;
-  			display: grid;
-  			align-items: flex-end;
-  			justify-content: flex-start;
-			word-wrap: break-word;
-			height: 20vw;
-			grid-area: column-2;
-		}
-
-		grid-item-3 {
-			background-image: url('../images/PyRTP.png');
-			background-attachment: local;
-			background-size: 50%;
-  			border: 0px solid rgba(0, 0, 0, 0.8);
-			box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  			padding: 20px;
-  			font-size: small;
-  			display: grid;
-  			align-items: flex-end;
-  			justify-content: flex-start;
-			word-wrap: break-word;
-			height: 20vw;
-			grid-area: column-3;
-		}
-		
-		grid-item-4 {
-			background-color: rgb(249, 249, 249);
-			box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-			border: 0px solid rgba(0, 0, 0, 0.8);
-			padding-left: 5px;
-			padding-right: 5px;
-			font-size: 1.8vw;
-  			display: grid;
-  			align-items: center;
-  			justify-content: center;
-			word-wrap: break-word;
-			height: 5vw;
-			grid-area: column-4;
-		}
-
-		grid-item-5{
-			background-color: rgb(249, 249, 249);
-			box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-			border: 0px solid rgba(0, 0, 0, 0.8);
-			padding-left: 5px;
-			padding-right: 5px;
-			font-size: 1.8vw;
-  			display: grid;
-  			align-items: center;
-  			justify-content: center;
-			word-wrap: break-word;
-			height: 5vw;
-			grid-area: column-5;
-		}
-
-		grid-item-6{
-			background-color: rgb(249, 249, 249);
-			box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-			border: 0px solid rgba(0, 0, 0, 0.8);
-			padding-left: 5px;
-			padding-right: 5px;
-			font-size: 1.8vw;
-  			display: grid;
-  			align-items: center;
-  			justify-content: center;
-			word-wrap: break-word;
-			height: 5vw;
-			grid-area: column-6;
-		}
 		@media screen and (max-width: 500px) {
 		  .header a {
 			float: none;
@@ -224,22 +170,10 @@
 		  .header-right {
 			float: none;
 		  }
-		  grid-container {
-			grid-template-columns: repeat(1, 1fr);
-			grid-template-rows: 33vw 10vw 33vw 10vw 33vw 10vw;
-			grid-template-areas: " column-1 "
-								 " column-4 "
-								 " column-2 "
-								 " column-5 "
-								 " column-3 "
-								 " column-6 ";
+
+		  .section-grid {
+			grid-template-columns: 1fr;
 		  }
-		  grid-item-1 { grid-area: column-1; height: 33vw; background-size: 25%;}
-		  grid-item-2 { grid-area: column-2; height: 33vw; background-size: 25%;}
-		  grid-item-3 { grid-area: column-3; height: 33vw; background-size: 25%;}
-		  grid-item-4 { grid-area: column-4; font-size: 3vw; height: 8vw;}
-		  grid-item-5 { grid-area: column-5; font-size: 3vw; height: 8vw;}
-		  grid-item-6 { grid-area: column-6; font-size: 3vw; height: 8vw;}
 
 		}
 		
@@ -247,32 +181,39 @@
 </head>
 <body>
 	<div class="header">
-		<a href="../" class="logo"><img src="../images/name.png" width="200px"></a>
+		<a href="../" class="logo"><img src="https://matt-a-thompson.github.io/images/name.png" width="200px" alt="Matt Thompson"></a>
 		<div class="header-right">
 		  <a class="buttons" href="../">Home</a>
 		  <a class="active" href="./">Teaching</a>
-		  <a class="buttons" href="../about">About</a>
-		  <a class="buttons" href="../contact">Contact</a>
+		  <a class="buttons" href="../about.html">About</a>
+		  <a class="buttons" href="../contact.html">Contact</a>
 		</div>
 	  </div>
 
 	<div class="body_content">
 		
 		<h1>Teaching</h1>
-		This page contains my teaching materials - notes, slides, and other resources. Feel free to read these, but if you would like to use them in your own teaching, please let me know first (the answer will almost certainly be yes, however it would be nice to know what materials are being used)!
+		<p class="lead">This page contains my teaching materials - notes, slides, and other resources. Feel free to read these, but if you would like to use them in your own teaching, please let me know first (the answer will almost certainly be yes, however it would be nice to know what materials are being used)!</p>
 
-		<h2>University of Lincoln</h2>
-		<ul>
-			<li><b>"What makes frogs fly?"</b> lecture slides - <a href="./docs/WhatMakesFrogsFly.pdf">link</a></li>
-			<li><b>Installing VS Code for C++</b> worksheet - <a href="./docs/InstallingVSCodeForC++.pdf"> link</a></li>
-		</ul>
-		<h2>University College London</h2>
-		<ul>
-			<li><b>Crystal Structure: A Brief Primer</b> notes - <a href="./docs/CrystalStructurePrimer.pdf">link</a></li>
-			<li><b>Miller Indices and Slip Symmetries: A Brief Primer</b> notes - <a href="./docs/MillerIndicesPrimer.pdf">link</a></li>
-		</ul>
+		<div class="section-grid">
+			<section class="section-card">
+				<h2>University of Lincoln</h2>
+				<ul class="resource-list">
+					<li class="resource-item"><b>"What makes frogs fly?"</b> lecture slides - <a href="./docs/WhatMakesFrogsFly.pdf">PDF</a></li>
+					<li class="resource-item"><b>Installing VS Code for C++</b> worksheet - <a href="./docs/InstallingVSCodeForC++.pdf">PDF</a></li>
+				</ul>
+			</section>
+			<section class="section-card">
+				<h2>University College London</h2>
+				<ul class="resource-list">
+					<li class="resource-item"><b>Crystal Structure: A Brief Primer</b> notes - <a href="./docs/CrystalStructurePrimer.pdf">PDF</a></li>
+					<li class="resource-item"><b>Miller Indices and Slip Symmetries: A Brief Primer</b> notes - <a href="./docs/MillerIndicesPrimer.pdf">PDF</a></li>
+					<li class="resource-item"><b>Phase Diagrams and Solidification: A Brief Primer</b> notes - <a href="./docs/Phase_Diagrams_Primer.pdf">PDF</a></li>
+				</ul>
+			</section>
+		</div>
 
 	</div>
-	<footer>Last updated: October 2025</footer>
+	<footer>Last updated: February 2026</footer>
 </body>
 </html>

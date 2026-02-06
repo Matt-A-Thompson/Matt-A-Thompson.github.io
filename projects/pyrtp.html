@@ -12,10 +12,33 @@
 	<link rel="manifest" href="/favicon/site.webmanifest">
 	<style>
 		* {box-sizing: border-box;}
+		:root {
+			--ink: #1f2933;
+			--muted: #4d5b6a;
+			--panel: #ffffff;
+			--line: #dbe3ee;
+		}
 		
 		body { 
 		  margin: 0;
-		  font-family: Arial, Helvetica, sans-serif;
+		  min-height: 100vh;
+		  display: grid;
+		  grid-template-rows: auto 1fr auto;
+		  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+		  color: var(--ink);
+		  background: radial-gradient(circle at 12% 0%, #f3f7fb 0%, #ffffff 46%);
+		}
+
+		footer{
+			border-radius: 0px;
+			background-color: #f1f1f1;
+			margin: 0;
+			text-align: center;
+			font-size: small;
+			color: rgb(0, 0, 0);
+			padding: 20px;
+			box-shadow: rgba(149, 157, 165, 0.3) 0px -3px 15px;
+			width: 100%;
 		}
 		
 		img {
@@ -24,25 +47,36 @@
 		}
 
 		.header {
+		  border-radius: 0px;
 		  overflow: hidden;
+		  min-height: 80px;
 		  background-color: #f1f1f1;
 		  padding: 20px 10px;
+		  margin: 0;
+		  box-shadow: rgba(149, 157, 165, 0.3) 0px 8px 24px;
+		  display: flex;
+		  align-items: center;
+		  justify-content: space-between;
 		}
-		
+
 		.header a {
-		  float: left;
+		  float: none;
 		  color: black;
 		  text-align: center;
-		  padding: 12px;
 		  text-decoration: none;
 		  font-size: 18px; 
 		  line-height: 25px;
 		  border-radius: 4px;
+		  display: inline-flex;
+		  align-items: center;
 		}
 		
 		.header a.logo {
-		  font-size: 25px;
 		  font-weight: bold;
+		}
+
+		.header a.buttons {
+		  padding: 12px;
 		}
 		
 		.header a:hover {
@@ -56,12 +90,24 @@
 		}
 		
 		.header-right {
-		  float: right;
+		  float: none;
+		  display: flex;
+		  align-items: center;
 		}
 
 		.body_content {
-			margin-left:20px;
-			margin-right: 20px;
+			max-width: 1100px;
+			width: 100%;
+			margin: 0 auto;
+			padding: 30px 20px 60px;
+		}
+
+		.content-card {
+			background: var(--panel);
+			border: 1px solid var(--line);
+			border-radius: 14px;
+			padding: 20px;
+			box-shadow: rgba(149, 157, 165, 0.18) 0px 10px 24px;
 		}
 		
 
@@ -69,32 +115,31 @@
     		cursor: pointer;
 		}
 
-		 .grid-container {
-  			display: grid;
-			column-gap: 5%;
-			row-gap:2%;
-  			grid-template-columns: 30% 65%;
-			background-color: rgba(255, 255, 255, 0.8);
-			background-color: #ffffff00;
-  			padding: 10px;
-			justify-content: space-evenly;
-		}
-		.grid-item-1 {
-			/*background-image: url('../images/polyfan.gif');
-			background-attachment: fixed;
-			background-size: 50%;*/
-			background-color: rgba(255, 255, 255, 0.8);
-  			border: 0px solid rgba(0, 0, 0, 0.8);
-			box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  			padding: 0px;
-			height: auto;
+		.project-layout {
+			display: grid;
+			column-gap: 28px;
+			row-gap: 20px;
+			grid-template-columns: minmax(220px, 320px) 1fr;
+			align-items: start;
 		}
 
-		.grid-item-2 {
-  			font-size: normal;
+		.image-column {
+			display: grid;
+			gap: 16px;
+		}
+
+		.image-card {
+			background-color: rgba(255, 255, 255, 0.8);
+			border: 1px solid var(--line);
+			box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+			padding: 8px;
+			border-radius: 14px;
+		}
+
+		.text-column {
+			font-size: 16px;
 			word-wrap: break-word;
-			height: 100px;
-			padding-top: 0px
+			line-height: 1.7;
 		}
 
 		@media screen and (max-width: 500px) {
@@ -108,18 +153,8 @@
 			float: none;
 		  }
 
-		  .grid-container {
-			grid-template-columns: 90%;
-			justify-content: center;
-			justify-items: center;
-		  }
-
-		  .grid-item-1 {
-			max-width: 75%;
-		  }
-
-		  .grid-item-2 {
-			height: auto;
+		  .project-layout {
+			grid-template-columns: 1fr;
 		  }
 		}
 		
@@ -127,19 +162,22 @@
 </head>
 <body>
 	<div class="header">
-		<a href="../" class="logo">Matt Thompson</a>
+		<a href="../" class="logo"><img src="https://matt-a-thompson.github.io/images/name.png" width="200px" alt="Matt Thompson"></a>
 		<div class="header-right">
-		  <a href="../">Home</a>
-		  <a href="../teaching">Teaching</a>
-		  <a href="../about">About</a>
-		  <a href="../contact">Contact</a>
+		  <a class="buttons" href="../">Home</a>
+		  <a class="buttons" href="../teaching">Teaching</a>
+		  <a class="buttons" href="../about.html">About</a>
+		  <a class="buttons" href="../contact.html">Contact</a>
 		</div>
 	  </div>
 	  <div class="body_content">
-		<h1>PyRTP</h1>
-		<div class="grid-container">
-			<div class="grid-item-1"><img src="../images/PyRTP.png"></div>
-			<div class="grid-item-2"><p>Objective: develop a program to perform real-time time dependent density functional theory calculations <i>as simply as possible.</i></p>
+		<div class="content-card">
+			<h1>PyRTP</h1>
+			<div class="project-layout">
+				<div class="image-column">
+					<div class="image-card"><img src="https://matt-a-thompson.github.io/images/PyRTP.png"></div>
+				</div>
+				<div class="text-column"><p>Objective: develop a program to perform real-time time dependent density functional theory calculations <i>as simply as possible.</i></p>
 			<p>During the devlopment of the code for the <a href="./rttddftincp2k">Optimisation of RT-TDDFT methods in CP2K</a> project, it was found that the program was easy to read and accessible for undergraduate students. Many DFT codes, owing to the push for greater efficiency and accuracy, have source code which is either unaccessible (closed-source) or extremely unfriendly for non-technical people (i.e. students who are not strong programmers). On top of this, many DFT codes are written in programming languages which are not simple to follow (i.e. C, Fortran, etc.). For many students, looking at exactly <i>how</i> a code calculates values is beneficial, and thus, the project was designed to produce a code to do this.</p>
 			<p>In order to complete this project, the program had to be designed with the following considerations in order to achieve the aims set out:</p>
 			<ul>
@@ -155,10 +193,12 @@
 				<li><b>Optimised with multithreading (where possible)</b> - The <i>Numba</i> package is used to multithread processes, allowing the programs to be run relatively quickly.<br><br></li>
 				<li><b>Available in an .ipynb format</b> - IPython notebooks allow for a blended approach between theory and code, helping students.<br><br></li>
 			</ul>
-			<p>This project is publically accessible on <a href="https://github.com/Matt-A-Thompson/PyRTP">GitHub</a>, and is maintained by myself. There are a number of things that I would like to continue to work on, however I do not presently have the time to continue development alone. If you would be interested in working on this project, please <a href="../contact">get in touch</a>!</p>
+			<p>This project is publically accessible on <a href="https://github.com/Matt-A-Thompson/PyRTP">GitHub</a>, and is maintained by myself. There are a number of things that I would like to continue to work on, however I do not presently have the time to continue development alone. If you would be interested in working on this project, please <a href="../contact.html">get in touch</a>!</p>
 			<p>This work was also presented at the CCP9 Conference 2024, with <a href="./docs/CCP9Poster.pdf">this poster</a>.<br><br></p>
-		</div>
+				</div>
+			</div>
 		</div>
 	  </div>
+	<footer>Last updated: February 2026</footer>
 </body>
 </html>

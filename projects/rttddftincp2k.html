@@ -12,10 +12,33 @@
 	<link rel="manifest" href="/favicon/site.webmanifest">
 	<style>
 		* {box-sizing: border-box;}
+		:root {
+			--ink: #1f2933;
+			--muted: #4d5b6a;
+			--panel: #ffffff;
+			--line: #dbe3ee;
+		}
 		
 		body { 
 		  margin: 0;
-		  font-family: Arial, Helvetica, sans-serif;
+		  min-height: 100vh;
+		  display: grid;
+		  grid-template-rows: auto 1fr auto;
+		  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+		  color: var(--ink);
+		  background: radial-gradient(circle at 12% 0%, #f3f7fb 0%, #ffffff 46%);
+		}
+
+		footer{
+			border-radius: 0px;
+			background-color: #f1f1f1;
+			margin: 0;
+			text-align: center;
+			font-size: small;
+			color: rgb(0, 0, 0);
+			padding: 20px;
+			box-shadow: rgba(149, 157, 165, 0.3) 0px -3px 15px;
+			width: 100%;
 		}
 		
 		img {
@@ -26,25 +49,36 @@
 
 
 		.header {
+		  border-radius: 0px;
 		  overflow: hidden;
+		  min-height: 80px;
 		  background-color: #f1f1f1;
 		  padding: 20px 10px;
+		  margin: 0;
+		  box-shadow: rgba(149, 157, 165, 0.3) 0px 8px 24px;
+		  display: flex;
+		  align-items: center;
+		  justify-content: space-between;
 		}
 		
 		.header a {
-		  float: left;
+		  float: none;
 		  color: black;
 		  text-align: center;
-		  padding: 12px;
 		  text-decoration: none;
 		  font-size: 18px; 
 		  line-height: 25px;
 		  border-radius: 4px;
+		  display: inline-flex;
+		  align-items: center;
 		}
 		
 		.header a.logo {
-		  font-size: 25px;
 		  font-weight: bold;
+		}
+
+		.header a.buttons {
+		  padding: 12px;
 		}
 		
 		.header a:hover {
@@ -58,12 +92,24 @@
 		}
 		
 		.header-right {
-		  float: right;
+		  float: none;
+		  display: flex;
+		  align-items: center;
 		}
 
 		.body_content {
-			margin-left:20px;
-			margin-right: 20px;
+			max-width: 1100px;
+			width: 100%;
+			margin: 0 auto;
+			padding: 30px 20px 60px;
+		}
+
+		.content-card {
+			background: var(--panel);
+			border: 1px solid var(--line);
+			border-radius: 14px;
+			padding: 20px;
+			box-shadow: rgba(149, 157, 165, 0.18) 0px 10px 24px;
 		}
 		
 
@@ -71,33 +117,31 @@
     		cursor: pointer;
 		}
 
-		 .grid-container {
-  			display: grid;
-			column-gap: 5%;
-			row-gap:2%;
-  			grid-template-columns: 30% 65%;
-			background-color: rgba(255, 255, 255, 0.8);
-			background-color: #ffffff00;
-  			padding: 10px;
-			justify-content: space-evenly;
+		.project-layout {
+			display: grid;
+			column-gap: 28px;
+			row-gap: 20px;
+			grid-template-columns: minmax(220px, 320px) 1fr;
+			align-items: start;
 		}
 
-		.grid-item-1 {
-			/*background-image: url('../images/polyfan.gif');
-			background-attachment: fixed;
-			background-size: 50%;*/
+		.image-column {
+			display: grid;
+			gap: 16px;
+		}
+
+		.image-card {
 			background-color: rgba(255, 255, 255, 0.8);
-  			border: 0px solid rgba(0, 0, 0, 0.8);
+			border: 1px solid var(--line);
 			box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  			padding: 0px;
-			height: auto;
+			padding: 8px;
+			border-radius: 14px;
 		}
 
-		.grid-item-2 {
-  			font-size: normal;
+		.text-column {
+			font-size: 16px;
 			word-wrap: break-word;
-			height: 100px;
-			padding-top: 0px
+			line-height: 1.7;
 		}
 
 		@media screen and (max-width: 500px) {
@@ -111,18 +155,8 @@
 			float: none;
 		  }
 
-		  .grid-container {
-			grid-template-columns: 90%;
-			justify-content: center;
-			justify-items: center;
-		  }
-
-		  .grid-item-1 {
-			max-width: 75%;
-		  }
-
-		  .grid-item-2 {
-			height: auto;
+		  .project-layout {
+			grid-template-columns: 1fr;
 		  }
 		}
 		
@@ -130,19 +164,22 @@
 </head>
 <body>
 	<div class="header">
-		<a href="../" class="logo">Matt Thompson</a>
+		<a href="../" class="logo"><img src="https://matt-a-thompson.github.io/images/name.png" width="200px" alt="Matt Thompson"></a>
 		<div class="header-right">
-		  <a href="../">Home</a>
-		  <a href="../teaching">Teaching</a>
-		  <a href="../about">About</a>
-		  <a href="../contact">Contact</a>
+		  <a class="buttons" href="../">Home</a>
+		  <a class="buttons" href="../teaching">Teaching</a>
+		  <a class="buttons" href="../about.html">About</a>
+		  <a class="buttons" href="../contact.html">Contact</a>
 		</div>
 	  </div>
 	  <div class="body_content">
-		<h1>Optimisation of RT-TDDFT Methods in CP2K</h1>
-		<div class="grid-container">
-			<div class="grid-item-1"><img src="../images/RTTDDFT.png"></div>
-			<div class="grid-item-2">
+		<div class="content-card">
+			<h1>Optimisation of RT-TDDFT Methods in CP2K</h1>
+			<div class="project-layout">
+				<div class="image-column">
+					<div class="image-card"><img src="https://matt-a-thompson.github.io/images/RTTDDFT.png"></div>
+				</div>
+				<div class="text-column">
 				<p>Objective: determine if any improvements can be made (either to accuracy or computational cost) in the RT-TDDFT method implemented in CP2K.</p>
 				<p>CP2K is one of many modern quantum chemistry/solid state physics program used around the world for simulations of various atomic-scale systems, using a variety of methods. It is favoured by many for its open-source, community-developed code and its applicability to a wide variety of systems, given the large array of methods featured in the program. One such method featured in CP2K is 'Time-Dependent Density Functional Theory', first implemented into the program by Florian Schiffmann as part of his PhD thesis at the University of Zurich in 2010.</p>
 				<p>The implementation of TDDFT in CP2K currently allows for a range of information to be acquired, including emission and absorption spectra. However, further information may be obtained during TDDFT calculation methods, which presently, are not obtainable in CP2K. Also, given the relatively recent implementation of the RTP procedure in CP2K, it is worth examining to determine if anything requires updating, in order to be comparable to other programs.</p>
@@ -155,7 +192,10 @@
 				</ul>
 				<p>This project, which was completed as part of my undergraduate study, found that the CFM4 propagator would be a useful addition to CP2K, given the improved computational cost, whilst not sacrificing accuracy. Formulae was also stated to give a clear connection between timestep and absorption spectra accuracy, based on Nyquist-Shannon sampling theorem. This project was successful, achieving a mark of 80% for the final dissertation, which can be accessed <a href="./docs/MT_rttddft_dissertation.pdf">here</a>. This project was also extended as part of the <a href="./pyrtp">PyRTP</a> project.<br><br></p>
 
+				</div>
 			</div>
 	  </div>
+	</div>
+	<footer>Last updated: February 2026</footer>
 </body>
 </html>

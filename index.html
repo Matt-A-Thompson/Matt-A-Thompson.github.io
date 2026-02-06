@@ -19,7 +19,7 @@
 			margin-left: 20px;
 			margin-right: 20px;
 			font-weight: normal;
-			font-size:3.5vw;
+			font-size: clamp(28px, 3.2vw, 44px);
 		}
 		h2{
 			margin-left: 20px;
@@ -29,48 +29,51 @@
 		}
 
 		footer{
-			border-radius: 10px;
+			border-radius: 0px;
 			background-color: #f1f1f1;
-			margin-top: auto;
-			margin-bottom: 20px;
+			margin: 0;
 			text-align: center;
 			font-size: small;
 			color: rgb(0, 0, 0);
-		
-			padding-top: 20px;
-			padding-bottom: 20px;
+			padding: 20px;
 			box-shadow: rgba(149, 157, 165, 0.3) 0px -3px 15px;
+			width: 100%;
 		}
 		
 		body { 
 		  min-height: 100vh;
-  		  margin: 0;
-  		  display: grid;
-  		  grid-template-rows: auto 1fr auto;
+		  margin: 0;
+		  display: grid;
+		  grid-template-rows: auto 1fr auto;
 		  background-color: rgb(255, 255, 255);
-		  margin: 0px;
 		  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-		  line-height: 1.2;
+		  line-height: 1.5;
 		}
 		
 		.body_content {
-			margin-left: 0px;
-			margin-right: 0px;
+			margin-left: auto;
+			margin-right: auto;
+			padding: 20px 20px 40px;
+			max-width: 1100px;
+			width: 100%;
 		}
 
 		.header {
-		  border-radius: 10px;
+		  border-radius: 0px;
 		  overflow: hidden;
-		  height: 12vh;
+		  min-height: 80px;
 		  background-color: #f1f1f1;
 		  padding: 20px 10px;
-		  margin-bottom: 0px;
+		  margin: 0;
 		  /*border-bottom: 0.5px solid grey;*/
 		  box-shadow: rgba(149, 157, 165, 0.3) 0px 8px 24px;
+		  display: flex;
+		  align-items: center;
+		  justify-content: space-between;
 		}
 		
 		.header a {
-		  float: left;
+		  float: none;
 		  color: black;
 		  text-align: center;
 		  /*padding: 12px;*/
@@ -78,6 +81,8 @@
 		  font-size: 18px; 
 		  line-height: 25px;
 		  border-radius: 4px;
+		  display: inline-flex;
+		  align-items: center;
 		}
 		
 		.header a.logo {
@@ -100,8 +105,9 @@
 		}
 		
 		.header-right {
-		  float: right;
-		  
+		  float: none;
+		  display: flex;
+		  align-items: center;
 		}
 
 		a:link {
@@ -138,130 +144,69 @@
 		}
 
 		grid-container {
-			margin-left: 20px;
-			margin-right: 20px;
+			margin: 0 auto;
 			padding-bottom: 50px;
-  			display: grid;
-			column-gap: 5%;
-			grid-template-columns: repeat(3, 1fr);
-			grid-template-rows: repeat(2, 0fr);
+			display: grid;
+			column-gap: 28px;
+			row-gap: 0px;
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+			grid-template-rows: auto;
 			background-color: rgba(255, 255, 255, 0.8);
 			background-color: #ffffff00;
-  			padding-bottom: auto;
-			justify-content: space-evenly;
-			justify-items: space-evenly;
-			grid-template-areas: "column-1 column-2 column-3"
-								"column-4 column-5 column-6";
+			justify-content: center;
+			justify-items: stretch;
+			max-width: 1100px;
+			padding-left: 20px;
+			padding-right: 20px;
 		}
 
-		grid-item-1 { grid-area: column-1; }
-		grid-item-2 { grid-area: column-2; }
-		grid-item-3 { grid-area: column-3; }
-		grid-item-4 { grid-area: column-4; }
-		grid-item-5 { grid-area: column-5; }
-		grid-item-6 { grid-area: column-6; }
-		
-		grid-item-1 {
-			border-top-left-radius: 10px;
-			border-top-right-radius: 10px;
-			background-image: url('./images/polyfan.png');
-			background-attachment: local;
-			background-size: 50%;
+		.project-card {
+			border-radius: 10px;
+			overflow: hidden;
+			background-color: rgb(249, 249, 249);
+			box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 			display: grid;
-			/*background-color: rgba(255, 255, 255, 0.8);*/
-  			border: 0px solid rgba(0, 0, 0, 0.8);
-			box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  			padding: 0px;
-			height: 20vw;
-			grid-area: column-1;
+			grid-template-rows: auto auto;
+			cursor: pointer;
+			text-decoration: none;
+			color: inherit;
+			transition: transform 180ms ease, box-shadow 180ms ease;
 		}
 
-		grid-item-2 {
-			border-top-left-radius: 10px;
-			border-top-right-radius: 10px;
-			background-image: url('./images/RTTDDFT.png');
+		.project-card:hover,
+		.project-card:focus-visible {
+			transform: translateY(-4px);
+			box-shadow: rgba(149, 157, 165, 0.35) 0px 12px 28px;
+		}
+
+		.project-card:focus-visible {
+			outline: 2px solid dodgerblue;
+			outline-offset: 4px;
+		}
+
+		.project-image {
 			background-attachment: local;
-			background-size: cover;
-			background-size: 50%;
-  			border: 0px solid rgba(0, 0, 0, 0.8);
-			box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  			font-size: small;
-  			display: grid;
-  			align-items: flex-end;
-  			justify-content: flex-start;
-			word-wrap: break-word;
-			height: 20vw;
-			grid-area: column-2;
+			background-size: 170px auto;
+			background-repeat: repeat;
+			background-position: center;
+			height: clamp(180px, 20vw, 260px);
+			transition: opacity 180ms ease;
 		}
 
-		grid-item-3 {
-			border-top-left-radius: 10px;
-			border-top-right-radius: 10px;
-			background-image: url('images/PyRTP.png');
-			background-attachment: local;
-			background-size: 50%;
-  			border: 0px solid rgba(0, 0, 0, 0.8);
-			box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  			padding: 20px;
-  			font-size: small;
-  			display: grid;
-  			align-items: flex-end;
-  			justify-content: flex-start;
-			word-wrap: break-word;
-			height: 20vw;
-			grid-area: column-3;
-		}
-		
-		grid-item-4 {
-			border-bottom-left-radius: 10px;
-			border-bottom-right-radius: 10px;
-			background-color: rgb(249, 249, 249);
-			box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-			border: 0px solid rgba(0, 0, 0, 0.8);
-			padding-left: 5px;
-			padding-right: 5px;
-			font-size: 1.8vw;
-  			display: grid;
-  			align-items: center;
-  			justify-content: center;
-			word-wrap: break-word;
-			height: 5vw;
-			grid-area: column-4;
+		.project-card:hover .project-image,
+		.project-card:focus-visible .project-image {
+			opacity: 0.75;
 		}
 
-		grid-item-5{
-			border-bottom-left-radius: 10px;
-			border-bottom-right-radius: 10px;
-			background-color: rgb(249, 249, 249);
-			box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-			border: 0px solid rgba(0, 0, 0, 0.8);
-			padding-left: 5px;
-			padding-right: 5px;
-			font-size: 1.8vw;
-  			display: grid;
-  			align-items: center;
-  			justify-content: center;
-			word-wrap: break-word;
-			height: 5vw;
-			grid-area: column-5;
+		.project-label {
+			padding: 14px 12px;
+			font-size: clamp(14px, 1.6vw, 18px);
+			text-align: center;
 		}
 
-		grid-item-6{
-			border-bottom-left-radius: 10px;
-			border-bottom-right-radius: 10px;
-			background-color: rgb(249, 249, 249);
-			box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-			border: 0px solid rgba(0, 0, 0, 0.8);
-			padding-left: 5px;
-			padding-right: 5px;
-			font-size: 1.8vw;
-  			display: grid;
-  			align-items: center;
-  			justify-content: center;
-			word-wrap: break-word;
-			height: 5vw;
-			grid-area: column-6;
-		}
+		.project-1 { background-image: url('./images/polyfan.png'); }
+		.project-2 { background-image: url('./images/RTTDDFT.png'); }
+		.project-3 { background-image: url('images/PyRTP.png'); }
 		banner{
 			border-radius: 15px;
 			display: block;
@@ -274,7 +219,8 @@
 			height: auto;
   			border: 0px solid green;
   			padding: 0px;
-  			margin: 0px;
+	  		margin: 0 auto 20px;
+			max-width: 1100px;
 			box-shadow: rgba(149, 157, 165, 0.3) 0px 8px 24px;
 
 		}
@@ -282,14 +228,12 @@
 			padding-top:10px;
 		}
 		banner p{
-	
 			padding: 0px;
 			margin-left: 20px;
 			margin-right: 20px;
 			padding-bottom: 30px;
-
 			color: rgb(0, 0, 0);
-			font-size: 1.4vw;
+			font-size: clamp(16px, 1.4vw, 20px);
 			/*font-weight: bold;*/
 			/*text-shadow: 2px 2px 4px #000000;*/
 		}
@@ -313,21 +257,11 @@
 			float: none;
 		  }
 		  grid-container {
-			grid-template-columns: repeat(1, 1fr);
-			grid-template-rows: 33vw 10vw 33vw 10vw 33vw 10vw;
-			grid-template-areas: " column-1 "
-								 " column-4 "
-								 " column-2 "
-								 " column-5 "
-								 " column-3 "
-								 " column-6 ";
+			grid-template-columns: 1fr;
+			row-gap: 16px;
 		  }
-		  grid-item-1 { grid-area: column-1; height: 33vw; background-size: 25%;}
-		  grid-item-2 { grid-area: column-2; height: 33vw; background-size: 25%;}
-		  grid-item-3 { grid-area: column-3; height: 33vw; background-size: 25%;}
-		  grid-item-4 { grid-area: column-4; font-size: 3vw; height: 8vw;}
-		  grid-item-5 { grid-area: column-5; font-size: 3vw; height: 8vw;}
-		  grid-item-6 { grid-area: column-6; font-size: 3vw; height: 8vw;}
+		  .project-image { height: 33vw; background-size: 25%; }
+		  .project-label { font-size: 3.4vw; padding: 10px 12px; }
 
 		
 
@@ -368,12 +302,12 @@
 </head>
 <body>
 	<div class="header">
-		<a href="./" class="logo"><img src="./images/name.png" width="200px"></a>
+		<a href="./" class="logo"><img src="https://matt-a-thompson.github.io/images/name.png" width="200px" alt="Matt Thompson"></a>
 		<div class="header-right">
 		  <a class="active" href="./">Home</a>
 		  <a class="buttons" href="./teaching">Teaching</a>
-		  <a class="buttons" href="about">About</a>
-		  <a class="buttons" href="contact">Contact</a>
+		  <a class="buttons" href="./about.html">About</a>
+		  <a class="buttons" href="./contact.html">Contact</a>
 		</div>
 	  </div>
 
@@ -393,26 +327,22 @@
 
 
 		<grid-container>
-			<div class="wrap" onclick='location.href = "./projects/fantrip-kbr-optimisation";'>
-			<grid-item-1></grid-item-1>
-			</div>
+			<a class="project-card" href="./projects/fantrip-kbr-optimisation.html">
+				<div class="project-image project-1"></div>
+				<div class="project-label">Fantrip-KBr Optimisation</div>
+			</a>
 
-			<div class="wrap" onclick='location.href = "./projects/rttddftincp2k";'>
-			<grid-item-2></grid-item-2>
-			</div>
+			<a class="project-card" href="./projects/rttddftincp2k.html">
+				<div class="project-image project-2"></div>
+				<div class="project-label">Optimisation of RT-TDDFT Methods in CP2K</div>
+			</a>
 
-			<div class="wrap" onclick='location.href = "./projects/pyrtp";'>
-			<grid-item-3></grid-item-3>
-			</div>
-
-			<grid-item-4><center><a href="./projects/fantrip-kbr-optimisation">Fantrip-KBr Optimisation</a></center></grid-item-4>
-
-
-			<grid-item-5><center><a href="./projects/rttddftincp2k">Optimisation of RT-TDDFT Methods in CP2K</a></center></grid-item-5>
-
-			<grid-item-6><a href="./projects/pyrtp">PyRTP</a></grid-item-6>
+			<a class="project-card" href="./projects/pyrtp.html">
+				<div class="project-image project-3"></div>
+				<div class="project-label">PyRTP</div>
+			</a>
 		</grid-container>
 	</div>
-	<footer>Last updated: October 2025</footer>
+	<footer>Last updated: February 2026</footer>
 </body>
 </html>

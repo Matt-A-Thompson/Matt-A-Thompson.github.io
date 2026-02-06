@@ -15,34 +15,63 @@
 		
 		body { 
 		  margin: 0px;
+		  min-height: 100vh;
+		  display: grid;
+		  grid-template-rows: auto 1fr auto;
 		  font-family: Arial, Helvetica, sans-serif;
+		}
+
+		footer{
+			border-radius: 0px;
+			background-color: #f1f1f1;
+			margin: 0;
+			text-align: center;
+			font-size: small;
+			color: rgb(0, 0, 0);
+			padding: 20px;
+			box-shadow: rgba(149, 157, 165, 0.3) 0px -3px 15px;
+			width: 100%;
 		}
 		
 		.body_content {
-			margin-left: 20px;
-			margin-right: 20px;
+			margin-left: auto;
+			margin-right: auto;
+			padding: 20px 20px 40px;
+			max-width: 1100px;
+			width: 100%;
 		}
 
 		.header {
+		  border-radius: 0px;
 		  overflow: hidden;
+		  min-height: 80px;
 		  background-color: #f1f1f1;
 		  padding: 20px 10px;
+		  margin: 0;
+		  box-shadow: rgba(149, 157, 165, 0.3) 0px 8px 24px;
+		  display: flex;
+		  align-items: center;
+		  justify-content: space-between;
 		}
 		
 		.header a {
-		  float: left;
+		  float: none;
 		  color: black;
 		  text-align: center;
-		  padding: 12px;
 		  text-decoration: none;
 		  font-size: 18px; 
 		  line-height: 25px;
 		  border-radius: 4px;
+		  display: inline-flex;
+		  align-items: center;
 		}
 		
 		.header a.logo {
-		  font-size: 25px;
 		  font-weight: bold;
+		}
+
+		.header a.buttons {
+		  padding: 12px;
 		}
 		
 		.header a:hover {
@@ -56,7 +85,9 @@
 		}
 		
 		.header-right {
-		  float: right;
+		  float: none;
+		  display: flex;
+		  align-items: center;
 		}
 
 		a:link {
@@ -79,129 +110,70 @@
 		  color: dodgerblue;
 		}
 		
-		p.center{
-			margin: 0;
-  			position: absolute;
-  			top: 50%;
-  			left: 50%;
-  			-ms-transform: translate(-50%, -50%);
-  			transform: translate(-50%, -50%);
-		}
-		.wrap{
-			background-color: rgba(255, 255, 255, 0);
-    		cursor: pointer;
-		}
-
 		grid-container {
-  			display: grid;
-			column-gap: 5%;
-			grid-template-columns: repeat(3, 1fr);
-			grid-template-rows: repeat(2, 1fr);
+			margin: 0 auto;
+			padding-bottom: 50px;
+			display: grid;
+			column-gap: 28px;
+			row-gap: 0px;
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+			grid-template-rows: auto;
 			background-color: rgba(255, 255, 255, 0.8);
 			background-color: #ffffff00;
-  			padding: 0px;
-			justify-content: space-evenly;
-			justify-items: space-evenly;
-			grid-template-areas: "column-1 column-2 column-3"
-								"column-4 column-5 column-6";
+			justify-content: center;
+			justify-items: stretch;
+			max-width: 1100px;
+			padding-left: 20px;
+			padding-right: 20px;
 		}
 
-		grid-item-1 { grid-area: column-1; }
-		grid-item-2 { grid-area: column-2; }
-		grid-item-3 { grid-area: column-3; }
-		grid-item-4 { grid-area: column-4; }
-		grid-item-5 { grid-area: column-5; }
-		grid-item-6 { grid-area: column-6; }
-		
-		grid-item-1 {
-			background-image: url('../images/polyfan.png');
-			background-attachment: local;
-			background-size: 50%;
+		.project-card {
+			border-radius: 10px;
+			overflow: hidden;
+			background-color: rgb(249, 249, 249);
+			box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 			display: grid;
-			/*background-color: rgba(255, 255, 255, 0.8);*/
-  			border: 0px solid rgba(0, 0, 0, 0.8);
-			box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  			padding: 0px;
-			height: 20vw;
-			grid-area: column-1;
+			grid-template-rows: auto auto;
+			cursor: pointer;
+			text-decoration: none;
+			color: inherit;
+			transition: transform 180ms ease, box-shadow 180ms ease;
 		}
 
-		grid-item-2 {
-			background-image: url('../images/RTTDDFT.png');
+		.project-card:hover,
+		.project-card:focus-visible {
+			transform: translateY(-4px);
+			box-shadow: rgba(149, 157, 165, 0.35) 0px 12px 28px;
+		}
+
+		.project-card:focus-visible {
+			outline: 2px solid dodgerblue;
+			outline-offset: 4px;
+		}
+
+		.project-image {
 			background-attachment: local;
-			background-size: cover;
-			background-size: 50%;
-  			border: 0px solid rgba(0, 0, 0, 0.8);
-			box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  			font-size: small;
-  			display: grid;
-  			align-items: flex-end;
-  			justify-content: flex-start;
-			word-wrap: break-word;
-			height: 20vw;
-			grid-area: column-2;
+			background-size: 170px auto;
+			background-repeat: repeat;
+			background-position: center;
+			height: clamp(180px, 20vw, 260px);
+			transition: opacity 180ms ease;
 		}
 
-		grid-item-3 {
-			background-image: url('../images/PyRTP.png');
-			background-attachment: local;
-			background-size: 50%;
-  			border: 0px solid rgba(0, 0, 0, 0.8);
-			box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  			padding: 20px;
-  			font-size: small;
-  			display: grid;
-  			align-items: flex-end;
-  			justify-content: flex-start;
-			word-wrap: break-word;
-			height: 20vw;
-			grid-area: column-3;
-		}
-		
-		grid-item-4 {
-			background-color: rgb(249, 249, 249);
-			box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-			border: 0px solid rgba(0, 0, 0, 0.8);
-			padding-left: 5px;
-			padding-right: 5px;
-			font-size: 1.8vw;
-  			display: grid;
-  			align-items: center;
-  			justify-content: center;
-			word-wrap: break-word;
-			height: 5vw;
-			grid-area: column-4;
+		.project-card:hover .project-image,
+		.project-card:focus-visible .project-image {
+			opacity: 0.75;
 		}
 
-		grid-item-5{
-			background-color: rgb(249, 249, 249);
-			box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-			border: 0px solid rgba(0, 0, 0, 0.8);
-			padding-left: 5px;
-			padding-right: 5px;
-			font-size: 1.8vw;
-  			display: grid;
-  			align-items: center;
-  			justify-content: center;
-			word-wrap: break-word;
-			height: 5vw;
-			grid-area: column-5;
+		.project-label {
+			padding: 14px 12px;
+			font-size: clamp(14px, 1.6vw, 18px);
+			text-align: center;
 		}
 
-		grid-item-6{
-			background-color: rgb(249, 249, 249);
-			box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-			border: 0px solid rgba(0, 0, 0, 0.8);
-			padding-left: 5px;
-			padding-right: 5px;
-			font-size: 1.8vw;
-  			display: grid;
-  			align-items: center;
-  			justify-content: center;
-			word-wrap: break-word;
-			height: 5vw;
-			grid-area: column-6;
-		}
+		.project-1 { background-image: url('https://matt-a-thompson.github.io/images/polyfan.png'); }
+		.project-2 { background-image: url('https://matt-a-thompson.github.io/images/RTTDDFT.png'); }
+		.project-3 { background-image: url('https://matt-a-thompson.github.io/images/PyRTP.png'); }
 		@media screen and (max-width: 500px) {
 		  .header a {
 			float: none;
@@ -213,21 +185,11 @@
 			float: none;
 		  }
 		  grid-container {
-			grid-template-columns: repeat(1, 1fr);
-			grid-template-rows: 33vw 10vw 33vw 10vw 33vw 10vw;
-			grid-template-areas: " column-1 "
-								 " column-4 "
-								 " column-2 "
-								 " column-5 "
-								 " column-3 "
-								 " column-6 ";
+			grid-template-columns: 1fr;
+			row-gap: 16px;
 		  }
-		  grid-item-1 { grid-area: column-1; height: 33vw; background-size: 25%;}
-		  grid-item-2 { grid-area: column-2; height: 33vw; background-size: 25%;}
-		  grid-item-3 { grid-area: column-3; height: 33vw; background-size: 25%;}
-		  grid-item-4 { grid-area: column-4; font-size: 3vw; height: 8vw;}
-		  grid-item-5 { grid-area: column-5; font-size: 3vw; height: 8vw;}
-		  grid-item-6 { grid-area: column-6; font-size: 3vw; height: 8vw;}
+		  .project-image { height: 33vw; background-size: 25%; }
+		  .project-label { font-size: 3.4vw; padding: 10px 12px; }
 
 		}
 		
@@ -235,12 +197,12 @@
 </head>
 <body>
 	<div class="header">
-		<a href="../" class="logo">Matt Thompson</a>
+		<a href="../" class="logo"><img src="https://matt-a-thompson.github.io/images/name.png" width="200px" alt="Matt Thompson"></a>
 		<div class="header-right">
-		  <a href="../">Home</a>
-		  <a href="../teaching">Teaching</a>
-		  <a href="../about">About</a>
-		  <a href="../contact">Contact</a>
+		  <a class="buttons" href="../">Home</a>
+		  <a class="buttons" href="../teaching">Teaching</a>
+		  <a class="buttons" href="../about.html">About</a>
+		  <a class="buttons" href="../contact.html">Contact</a>
 		</div>
 	  </div>
 
@@ -250,25 +212,22 @@
 
 
 		<grid-container>
-			<div class="wrap" onclick='location.href = "./fantrip-kbr-optimisation";'>
-			<grid-item-1></grid-item-1>
-			</div>
+			<a class="project-card" href="./fantrip-kbr-optimisation.html">
+				<div class="project-image project-1"></div>
+				<div class="project-label">Fantrip-KBr Optimisation</div>
+			</a>
 
-			<div class="wrap" onclick='location.href = "./rttddftincp2k";'>
-			<grid-item-2></grid-item-2>
-			</div>
+			<a class="project-card" href="./rttddftincp2k.html">
+				<div class="project-image project-2"></div>
+				<div class="project-label">Optimisation of RT-TDDFT Methods in CP2K</div>
+			</a>
 
-			<div class="wrap" onclick='location.href = "./pyrtp";'>
-			<grid-item-3></grid-item-3>
-			</div>
-
-			<grid-item-4><center><a href="./fantrip-kbr-optimisation">Fantrip-KBr Optimisation</a></center></grid-item-4>
-
-
-			<grid-item-5><center><a href="./rttddftincp2k">Optimisation of RT-TDDFT Methods in CP2K</a></center></grid-item-5>
-
-			<grid-item-6><a href="./pyrtp">PyRTP</a></grid-item-6>
+			<a class="project-card" href="./pyrtp.html">
+				<div class="project-image project-3"></div>
+				<div class="project-label">PyRTP</div>
+			</a>
 		</grid-container>
 	</div>
+	<footer>Last updated: February 2026</footer>
 </body>
 </html>

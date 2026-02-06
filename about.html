@@ -12,12 +12,27 @@
 	<link rel="manifest" href="/favicon/site.webmanifest">
 	<style>
 		* {box-sizing: border-box;}
+		:root {
+			--ink: #1f2933;
+			--muted: #4d5b6a;
+			--accent: #1f6feb;
+			--panel: #ffffff;
+			--panel-tint: #f3f6fa;
+			--line: #dbe3ee;
+		}
 
 		h1{
-			margin-left: 0px;
-			margin-right: 0px;
+			margin: 0 0 12px;
 			font-weight: normal;
-			/*font-size:3.5vw;*/
+			font-size: clamp(30px, 3.2vw, 44px);
+			letter-spacing: 0.4px;
+		}
+
+		.lead {
+			margin: 0 0 20px;
+			color: var(--muted);
+			font-size: 16px;
+			line-height: 1.6;
 		}
 
 		img {
@@ -34,37 +49,49 @@
 		}
 
 		.body {
-			margin:20px;
-			padding-bottom: 50px;
+			max-width: 1100px;
+			width: 100%;
+			margin: 0 auto;
+			padding: 30px 20px 60px;
 		}
 		
 		body { 
 		  margin: 0;
+		  min-height: 100vh;
+		  display: grid;
+		  grid-template-rows: auto 1fr auto;
 		  font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+		  color: var(--ink);
+		  background: radial-gradient(circle at 12% 0%, #f3f7fb 0%, #ffffff 46%);
 		}
 
 		footer{
+			border-radius: 0px;
 			background-color: #f1f1f1;
-			margin-top: 20px;
-			margin-bottom: 20px;
+			margin: 0;
 			text-align: center;
 			font-size: small;
 			color: rgb(0, 0, 0);
-
-			padding-top: 20px;
-			padding-bottom: 20px;
+			padding: 20px;
 			box-shadow: rgba(149, 157, 165, 0.3) 0px -3px 15px;
+			width: 100%;
 		}
 		
 		.header {
+		  border-radius: 0px;
 		  overflow: hidden;
+		  min-height: 80px;
 		  background-color: #f1f1f1;
 		  padding: 20px 10px;
+		  margin: 0;
 		  box-shadow: rgba(149, 157, 165, 0.3) 0px 8px 24px;
+		  display: flex;
+		  align-items: center;
+		  justify-content: space-between;
 		}
 		
 		.header a {
-		  float: left;
+		  float: none;
 		  color: black;
 		  text-align: center;
 		  padding: 0px;
@@ -72,10 +99,11 @@
 		  font-size: 18px; 
 		  line-height: 25px;
 		  border-radius: 4px;
+		  display: inline-flex;
+		  align-items: center;
 		}
 		
 		.header a.logo {
-		  font-size: 25px;
 		  font-weight: bold;
 		}
 
@@ -95,36 +123,52 @@
 		}
 		
 		.header-right {
-		  float: right;
+		  float: none;
+		  display: flex;
+		  align-items: center;
 		}
 		
 
 		.grid-container {
-  			display: grid;
-			column-gap: 5%;
-			row-gap:2%;
-  			grid-template-columns: 30% 65%;
+			display: grid;
+			column-gap: 28px;
+			row-gap: 20px;
+			grid-template-columns: 280px 1fr;
 			background-color: rgba(255, 255, 255, 0.8);
 			background-color: #ffffff00;
-  			padding: 0px;
+			padding: 0px;
 			justify-content: center;
-			justify-items: center;
+			justify-items: start;
 		}
 		.grid-item-1 {
-			/*background-image: url('../images/polyfan.gif');
-			background-attachment: fixed;
-			background-size: 50%;*/
-			max-width: 250px;
+			max-width: 280px;
+			width: 100%;
 			background-color: rgba(255, 255, 255, 0.8);
-  			border: 0px solid rgba(0, 0, 0, 0.8);
+			border: 1px solid var(--line);
 			box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  			padding: 0px;
+			padding: 8px;
+			border-radius: 14px;
 			height: fit-content;
 		}
 
 		.grid-item-2 {
-  			font-size: normal;
+			font-size: 16px;
 			word-wrap: break-word;
+			line-height: 1.7;
+			background: var(--panel);
+			border: 1px solid var(--line);
+			border-radius: 14px;
+			padding: 18px;
+			box-shadow: rgba(149, 157, 165, 0.18) 0px 10px 24px;
+		}
+
+		.grid-item-2 a {
+			color: var(--accent);
+			text-decoration: none;
+		}
+
+		.grid-item-2 a:hover {
+			text-decoration: underline;
 		}
 
 		@media screen and (max-width: 500px) {
@@ -139,12 +183,11 @@
 		  }
 
 		  .grid-container {
-			grid-template-columns: 90%;
+			grid-template-columns: 1fr;
 		  }
 
 		  .grid-item-1 {
-			
-			max-width: 70%;
+			max-width: 220px;
 			height: auto;
 		  }
 
@@ -156,16 +199,17 @@
 </head>
 <body>
 	<div class="header">
-		<a href="./" class="logo"><img src="./images/name.png" width="200px"></a>
+		<a href="./" class="logo"><img src="https://matt-a-thompson.github.io/images/name.png" width="200px" alt="Matt Thompson"></a>
 		<div class="header-right">
 		  <a class="buttons" href="./">Home</a>
 		  <a class="buttons" href="./teaching">Teaching</a>
-		  <a class="active" href="about">About</a>
-		  <a class="buttons" href="contact">Contact</a>
+		  <a class="active" href="./about.html">About</a>
+		  <a class="buttons" href="./contact.html">Contact</a>
 		</div>
 	</div>
 	<div class="body">
 			<h1>About</h1>
+			<p class="lead">A snapshot of my current work, background, and interests in computational materials research.</p>
 			<div class="grid-container">
 				<div class="grid-item-1"><img src="./images/MTProfileSquare.png"></div>
 				<div class="grid-item-2">
@@ -178,11 +222,11 @@
 				<li>Assessing the impact of <a href="https://www.cp2k.org">CP2K </a> for REF2029 </li>
 				<li>Producing teaching tools for DFT</li>
 			</ul>
-			<p>Matt is interested in collaborating on materials projects (from a computational perspective). If you are interested in working together, do <a href="contact">get in touch</a>!</p>
+			<p>Matt is interested in collaborating on materials projects (from a computational perspective). If you are interested in working together, do <a href="./contact.html">get in touch</a>!</p>
 				</div>
 			
 			</div>
 	</div>
-	<footer>Last updated: October 2025</footer>
+	<footer>Last updated: February 2026</footer>
 </body>
 </html>

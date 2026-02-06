@@ -12,40 +12,64 @@
 	<link rel="manifest" href="/favicon/site.webmanifest">
 	<style>
 		* {box-sizing: border-box;}
+		:root {
+			--ink: #1f2933;
+			--muted: #4d5b6a;
+			--accent: #1f6feb;
+			--panel: #ffffff;
+			--panel-tint: #f3f6fa;
+			--line: #dbe3ee;
+		}
 
 		h1{
-			margin-left: 20px;
-			margin-right: 20px;
+			margin: 0 0 12px;
 			font-weight: normal;
-			/*font-size:3.5vw;*/
+			font-size: clamp(30px, 3.2vw, 44px);
+			letter-spacing: 0.4px;
+		}
+
+		h2 {
+			margin: 0 0 10px;
+			font-weight: normal;
+			font-size: clamp(18px, 1.8vw, 22px);
 		}
 
 		body { 
 		  margin: 0;
-		  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+		  min-height: 100vh;
+		  display: grid;
+		  grid-template-rows: auto 1fr auto;
+		  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+		  color: var(--ink);
+		  background: radial-gradient(circle at 10% 0%, #f3f7fb 0%, #ffffff 46%);
 		}
 		footer{
+			border-radius: 0px;
 			background-color: #f1f1f1;
-			margin-top: 20px;
-			margin-bottom: 20px;
+			margin: 0;
 			text-align: center;
 			font-size: small;
 			color: rgb(0, 0, 0);
-
-			padding-top: 20px;
-			padding-bottom: 20px;
+			padding: 20px;
 			box-shadow: rgba(149, 157, 165, 0.3) 0px -3px 15px;
+			width: 100%;
 		}
 		
 		.header {
+		  border-radius: 0px;
 		  overflow: hidden;
+		  min-height: 80px;
 		  background-color: #f1f1f1;
 		  padding: 20px 10px;
+		  margin: 0;
 		  box-shadow: rgba(149, 157, 165, 0.3) 0px 8px 24px;
+		  display: flex;
+		  align-items: center;
+		  justify-content: space-between;
 		}
 		
 		.header a {
-		  float: left;
+		  float: none;
 		  color: black;
 		  text-align: center;
 		  padding: 0px;
@@ -53,10 +77,11 @@
 		  font-size: 18px; 
 		  line-height: 25px;
 		  border-radius: 4px;
+		  display: inline-flex;
+		  align-items: center;
 		}
 		
 		.header a.logo {
-		  font-size: 25px;
 		  font-weight: bold;
 		}
 
@@ -76,7 +101,78 @@
 		}
 		
 		.header-right {
-		  float: right;
+		  float: none;
+		  display: flex;
+		  align-items: center;
+		}
+
+		.content {
+			max-width: 1100px;
+			width: 100%;
+			margin: 0 auto;
+			padding: 30px 20px 60px;
+		}
+
+		.contact-card {
+			background: var(--panel);
+			border: 1px solid var(--line);
+			border-radius: 14px;
+			padding: 24px;
+			box-shadow: rgba(149, 157, 165, 0.22) 0px 12px 28px;
+		}
+
+		.contact-intro {
+			margin: 0 0 20px;
+			color: var(--muted);
+			font-size: 16px;
+			line-height: 1.6;
+		}
+
+		.contact-grid {
+			display: grid;
+			grid-template-columns: 1.2fr 0.8fr;
+			gap: 24px;
+		}
+
+		.contact-list {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			display: grid;
+			gap: 12px;
+		}
+
+		.contact-item {
+			display: grid;
+			grid-template-columns: 110px 1fr;
+			gap: 12px;
+			align-items: baseline;
+		}
+
+		.contact-label {
+			font-size: 12px;
+			letter-spacing: 0.12em;
+			text-transform: uppercase;
+			color: var(--muted);
+			font-weight: bold;
+		}
+
+		.contact-value a {
+			color: var(--accent);
+			text-decoration: none;
+		}
+
+		.contact-value a:hover {
+			text-decoration: underline;
+		}
+
+		.address {
+			background: var(--panel-tint);
+			border: 1px solid var(--line);
+			border-radius: 12px;
+			padding: 16px;
+			line-height: 1.6;
+			font-style: normal;
 		}
 		
 		@media screen and (max-width: 500px) {
@@ -89,42 +185,67 @@
 		  .header-right {
 			float: none;
 		  }
-		}
-		
-		p.ex1 {
-  			border: 0px solid red; 
-			  padding-left: 0px;
-  			padding-right: 20px;
+
+		  .contact-grid {
+			grid-template-columns: 1fr;
+		  }
+
+		  .contact-item {
+			grid-template-columns: 1fr;
+		  }
 		}
 		</style>
 </head>
 <body>
 	<div class="header">
-		<a href="./" class="logo"><img src="./images/name.png" width="200px"></a>
+		<a href="./" class="logo"><img src="https://matt-a-thompson.github.io/images/name.png" width="200px" alt="Matt Thompson"></a>
 		<div class="header-right">
 		  <a class="buttons" href="./">Home</a>
 		  <a class="buttons" href="./teaching">Teaching</a>
-		  <a class="buttons" href="about">About</a>
-		  <a class="active" href="contact">Contact</a>
+		  <a class="buttons" href="./about.html">About</a>
+		  <a class="active" href="./contact.html">Contact</a>
 		</div>
 	  </div>
 
-	  <div>
+	  <main class="content">
 		<h1>Contact</h1>
-		<div style="margin-left:20px; margin-right:20px;">
-		<p class="ex1">The best way to get in contact with me is via email - however here is all of my contact details and links:</p>
-		<p class="ex1">Email: <a href="mailto:matthew.thompson.24@ucl.ac.uk">matthew.thompson.24@ucl.ac.uk</a></p>
-		<p class="ex1">GitHub: <a href="https://github.com/Matt-A-Thompson">https://github.com/Matt-A-Thompson</a></p>
-		<p class="ex1">ORCID: <a href="https://orcid.org/my-orcid?orcid=0009-0000-6677-3346">https://orcid.org/my-orcid?orcid=0009-0000-6677-3346</a></p>
-		<p class="ex1">LinkedIn: <a href="https://www.linkedin.com/in/matthew-thompson-b10b1b194/">https://www.linkedin.com/in/matthew-thompson-b10b1b194/</a></p>
-		<p class="ex1"><br> Office address:</p>
-		<p>Matthew Thompson<br>
-			Department of Mechanical Engineering<br>
-			University College London<br>
-			Torrington Place<br>
-			London, WC1E 7JE, UK</p>
-		</div>
-	</div>
-	<footer>Last updated: October 2025</footer>
+		<section class="contact-card">
+			<p class="contact-intro">The best way to get in contact with me is via email. Here are all of my contact details and links.</p>
+			<div class="contact-grid">
+				<div>
+					<h2>Direct</h2>
+					<ul class="contact-list">
+						<li class="contact-item">
+							<span class="contact-label">Email</span>
+							<span class="contact-value"><a href="mailto:matthew.thompson.24@ucl.ac.uk">matthew.thompson.24@ucl.ac.uk</a></span>
+						</li>
+						<li class="contact-item">
+							<span class="contact-label">GitHub</span>
+							<span class="contact-value"><a href="https://github.com/Matt-A-Thompson">github.com/Matt-A-Thompson</a></span>
+						</li>
+						<li class="contact-item">
+							<span class="contact-label">ORCID</span>
+							<span class="contact-value"><a href="https://orcid.org/my-orcid?orcid=0009-0000-6677-3346">orcid.org/0009-0000-6677-3346</a></span>
+						</li>
+						<li class="contact-item">
+							<span class="contact-label">LinkedIn</span>
+							<span class="contact-value"><a href="https://www.linkedin.com/in/matthew-thompson-b10b1b194/">linkedin.com/in/matthew-thompson-b10b1b194</a></span>
+						</li>
+					</ul>
+				</div>
+				<div>
+					<h2>Office</h2>
+					<address class="address">
+						Matthew Thompson<br>
+						Department of Mechanical Engineering<br>
+						University College London<br>
+						Torrington Place<br>
+						London, WC1E 7JE, UK
+					</address>
+				</div>
+			</div>
+		</section>
+	</main>
+	<footer>Last updated: February 2026</footer>
 </body>
 </html>
